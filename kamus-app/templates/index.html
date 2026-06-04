@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사전 · Kamus Indonesia–Korea</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Background decorative elements -->
+    <div class="bg-pattern">
+        <span class="char c1">사</span>
+        <span class="char c2">랑</span>
+        <span class="char c3">어</span>
+        <span class="char c4">학</span>
+        <span class="char c5">단</span>
+        <span class="char c6">어</span>
+    </div>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header-badge">사전</div>
+            <h1 class="title">Kamus<br><em>Indonesia – Korea</em></h1>
+            <p class="subtitle">Cari kata dalam Bahasa Indonesia atau Hangul</p>
+        </header>
+
+        <!-- Search Form -->
+        <section class="search-section">
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchInput"
+                    class="search-input"
+                    placeholder="cinta · 사랑 · makan · 먹다 ..."
+                    autocomplete="off"
+                    spellcheck="false"
+                />
+                <button class="search-btn" id="searchBtn" onclick="doSearch()">
+                    <span class="btn-label">Cari</span>
+                    <span class="btn-icon">→</span>
+                </button>
+            </div>
+            <p class="search-hint">Ketik kata Indonesia <strong>atau</strong> kata Korea (Hangul)</p>
+        </section>
+
+        <!-- Result Area -->
+        <section class="result-section" id="resultSection" style="display:none;">
+
+            <!-- Main word card -->
+            <div class="word-card" id="wordCard">
+                <div class="word-header">
+                    <div class="word-korean" id="resKorean">—</div>
+                    <div class="word-roman" id="resRoman">—</div>
+                </div>
+                <div class="word-meaning">
+                    <span class="meaning-id" id="resMeaning">—</span>
+                </div>
+            </div>
+
+            <!-- Detail grid -->
+            <div class="detail-grid">
+
+                <div class="detail-card" id="cardCategory">
+                    <div class="detail-icon">🏷</div>
+                    <div class="detail-label">Kategori</div>
+                    <div class="detail-value" id="resCategory">—</div>
+                </div>
+
+                <div class="detail-card" id="cardSynonym">
+                    <div class="detail-icon">≈</div>
+                    <div class="detail-label">Sinonim</div>
+                    <div class="detail-value tag-list" id="resSynonym">—</div>
+                </div>
+
+                <div class="detail-card" id="cardAntonym">
+                    <div class="detail-icon">≠</div>
+                    <div class="detail-label">Antonim</div>
+                    <div class="detail-value tag-list" id="resAntonym">—</div>
+                </div>
+
+            </div>
+
+            <!-- Example sentences -->
+            <div class="example-section" id="exampleSection">
+                <div class="example-label">Contoh Kalimat</div>
+                <div class="example-list" id="resExamples"></div>
+            </div>
+
+        </section>
+
+        <!-- Error -->
+        <div class="error-box" id="errorBox" style="display:none;">
+            <div class="error-icon">오</div>
+            <div class="error-msg" id="errorMsg">Terjadi kesalahan.</div>
+        </div>
+
+        <!-- Loading -->
+        <div class="loading" id="loading" style="display:none;">
+            <div class="loading-dots">
+                <span></span><span></span><span></span>
+            </div>
+            <p>Mencari di kamus…</p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <span>Terhubung ke</span>
+            <span class="fuseki-badge" id="fusekiBadge" title="Cek koneksi Fuseki">
+                Apache Jena Fuseki
+            </span>
+            <span id="connStatus" class="conn-dot conn-unknown">●</span>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

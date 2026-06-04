@@ -1,0 +1,82 @@
+# =============================================
+# CONTOH DATA KAMUS (Turtle / TTL)
+# Upload file ini ke Apache Jena Fuseki
+# Dataset: kamus
+# =============================================
+
+@prefix ex:   <http://example.org/kamus#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# ─── Kelas utama ───
+ex:Word a rdfs:Class ;
+    rdfs:label "Kata / Word" .
+
+# ─── Properti ───
+ex:korean        rdfs:domain ex:Word ; rdfs:range xsd:string .
+ex:indonesian    rdfs:domain ex:Word ; rdfs:range xsd:string .
+ex:romanization  rdfs:domain ex:Word ; rdfs:range xsd:string .
+ex:meaning       rdfs:domain ex:Word ; rdfs:range xsd:string .
+ex:category      rdfs:domain ex:Word ; rdfs:range xsd:string .
+ex:synonym       rdfs:domain ex:Word ; rdfs:range xsd:string .
+ex:antonym       rdfs:domain ex:Word ; rdfs:range xsd:string .
+ex:example       rdfs:domain ex:Word ; rdfs:range xsd:string .
+
+# ─── Data Contoh ───
+
+ex:word_cinta a ex:Word ;
+    ex:korean       "사랑" ;
+    ex:indonesian   "cinta" ;
+    ex:romanization "sarang" ;
+    ex:meaning      "cinta / love" ;
+    ex:category     "emotion" ;
+    ex:synonym      "애정" ;
+    ex:synonym      "사모" ;
+    ex:antonym      "증오" ;
+    ex:antonym      "미움" ;
+    ex:example      "사랑은 아름답다." ;
+    ex:example      "나는 너를 사랑해." .
+
+ex:word_makan a ex:Word ;
+    ex:korean       "먹다" ;
+    ex:indonesian   "makan" ;
+    ex:romanization "meokda" ;
+    ex:meaning      "makan / to eat" ;
+    ex:category     "verb" ;
+    ex:synonym      "드시다" ;
+    ex:antonym      "굶다" ;
+    ex:example      "밥을 먹다." ;
+    ex:example      "우리는 같이 먹어요." .
+
+ex:word_air a ex:Word ;
+    ex:korean       "물" ;
+    ex:indonesian   "air" ;
+    ex:romanization "mul" ;
+    ex:meaning      "air / water" ;
+    ex:category     "noun" ;
+    ex:synonym      "수분" ;
+    ex:antonym      "불" ;
+    ex:example      "물을 마시다." .
+
+ex:word_baik a ex:Word ;
+    ex:korean       "좋다" ;
+    ex:indonesian   "baik" ;
+    ex:romanization "jota" ;
+    ex:meaning      "baik / good" ;
+    ex:category     "adjective" ;
+    ex:synonym      "훌륭하다" ;
+    ex:synonym      "괜찮다" ;
+    ex:antonym      "나쁘다" ;
+    ex:example      "오늘 날씨가 좋다." .
+
+ex:word_rumah a ex:Word ;
+    ex:korean       "집" ;
+    ex:indonesian   "rumah" ;
+    ex:romanization "jip" ;
+    ex:meaning      "rumah / house / home" ;
+    ex:category     "noun" ;
+    ex:synonym      "가정" ;
+    ex:antonym      "밖" ;
+    ex:example      "집에 가고 싶다." ;
+    ex:example      "우리 집은 커요." .
