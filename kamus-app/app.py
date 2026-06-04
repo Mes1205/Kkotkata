@@ -8,8 +8,7 @@ app = Flask(__name__)
 # KONFIGURASI FUSEKI SERVER
 # Ganti URL ini sesuai dengan server Fuseki Anda
 # =============================================
-FUSEKI_ENDPOINT = "http://localhost:3030/kamus/sparql"
-# Jika dataset Anda bernama berbeda, ganti "kamus" di atas
+FUSEKI_ENDPOINT = "http://localhost:3030/kkotkata/sparql"
 
 
 def run_sparql_query(query: str) -> dict:
@@ -45,61 +44,37 @@ def extract_values(results: dict, var: str) -> list:
 
 
 def build_sparql_query(keyword: str) -> str:
-    """
-    Membangun SPARQL query untuk mencari kata berdasarkan kata Indonesia atau Korea.
-    
-    Asumsi prefix/ontologi:
-      - ex:   <http://example.org/kamus#>
-      - kata memiliki properti:
-          ex:korean       -> teks Korea (hangul)
-          ex:indonesian   -> teks Indonesia
-          ex:romanization -> romanisasi
-          ex:meaning      -> arti/definisi
-          ex:category     -> kategori kata
-          ex:synonym      -> sinonim (Korean)
-          ex:antonym      -> antonim (Korean)
-          ex:example      -> contoh kalimat
-    
-    Sesuaikan PREFIX dan properti ini dengan ontologi Fuseki Anda!
-    """
-    # Escape untuk mencegah SPARQL injection sederhana
     safe_keyword = keyword.replace('"', '\\"').replace('\\', '\\\\')
+    return f"""
+PREFIX kkot: <http://kkotkata.org/ontology#>
 
-    query = f"""
-PREFIX ex: <http://example.org/kamus#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-
-SELECT DISTINCT
-    ?korean
-    ?indonesian
-    ?romanization
-    ?meaning
-    ?category
-    ?synonym
-    ?antonym
-    ?example
+SELECT DISTINCT ?korean ?indonesian ?romanization ?category ?synonym ?antonym ?exKorean
 WHERE {{
-    ?word a ex:Word .
-    ?word ex:korean ?korean .
-    OPTIONAL {{ ?word ex:indonesian   ?indonesian   }}
-    OPTIONAL {{ ?word ex:romanization ?romanization }}
-    OPTIONAL {{ ?word ex:meaning      ?meaning      }}
-    OPTIONAL {{ ?word ex:category     ?category     }}
-    OPTIONAL {{ ?word ex:synonym      ?synonym      }}
-    OPTIONAL {{ ?word ex:antonym      ?antonym      }}
-    OPTIONAL {{ ?word ex:example      ?example      }}
+    ?word a kkot:Word ;
+          kkot:korean ?korean ;
+          kkot:bahasaIndonesia ?indonesian .
+    
+    OPTIONAL {{ ?word kkot:romanization ?romanization }}
+    OPTIONAL {{ ?word kkot:category ?category }}
+    
+    # Ambil sinonim (Blank Node)
+    OPTIONAL {{ ?word kkot:hasSynonym ?synNode . ?synNode kkot:korean ?synonym }}
+    
+    # Ambil antonim (URI)
+    OPTIONAL {{ ?word kkot:hasAntonym ?antNode . ?antNode kkot:korean ?antonym }}
+    
+    # Ambil contoh kalimat
+    OPTIONAL {{ ?word kkot:hasExample ?exNode . ?exNode kkot:sentenceKorean ?exKorean }}
 
     FILTER (
-        LCASE(STR(?korean))    = LCASE("{safe_keyword}") ||
-        LCASE(STR(?indonesian)) = LCASE("{safe_keyword}")
+        CONTAINS(LCASE(STR(?korean)), LCASE("{safe_keyword}")) ||
+        CONTAINS(LCASE(STR(?indonesian)), LCASE("{safe_keyword}"))
     )
 }}
 """
-    return query
 
 
 def search_word(keyword: str) -> dict:
-    """Mencari kata dan mengembalikan hasil terstruktur."""
     query = build_sparql_query(keyword)
     raw = run_sparql_query(query)
     bindings = raw.get("results", {}).get("bindings", [])
@@ -107,33 +82,21 @@ def search_word(keyword: str) -> dict:
     if not bindings:
         return None
 
-    # Ambil nilai pertama untuk field singular, list untuk field plural
-    def first(var):
-        for b in bindings:
-            if var in b:
-                return b[var]["value"]
-        return None
+    # Helper untuk mengambil data unik
+    def get_unique(var):
+        return list({b[var]["value"] for b in bindings if var in b})
 
-    def all_unique(var):
-        seen = set()
-        result = []
-        for b in bindings:
-            if var in b:
-                v = b[var]["value"]
-                if v not in seen:
-                    seen.add(v)
-                    result.append(v)
-        return result
-
+    # Ambil baris pertama untuk data utama
+    first_b = bindings[0]
+    
     return {
-        "korean":       first("korean"),
-        "indonesian":   first("indonesian"),
-        "romanization": first("romanization"),
-        "meaning":      first("meaning"),
-        "category":     first("category"),
-        "synonyms":     all_unique("synonym"),
-        "antonyms":     all_unique("antonym"),
-        "examples":     all_unique("example"),
+        "korean":       first_b.get("korean", {}).get("value"),
+        "indonesian":   first_b.get("indonesian", {}).get("value"),
+        "romanization": first_b.get("romanization", {}).get("value"),
+        "category":     first_b.get("category", {}).get("value"),
+        "synonyms":     get_unique("synonym"),
+        "antonyms":     get_unique("antonym"),
+        "examples":     get_unique("exKorean"),
     }
 
 
@@ -173,4 +136,4 @@ def health():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    app.run(debug=True, host="0.0.0.0", port=5001)
