@@ -1,0 +1,2135 @@
+# ──────────────────────────────────────────────────────────────────
+#  KKotKata Vocabulary Dataset — Turtle/RDF Export
+#  Source  : kkotkata-dataset.csv
+#  Vocab   : 100 kata Korea beserta terjemahan, sinonim, antonim,
+#             romanisasi, dan contoh kalimat
+# ──────────────────────────────────────────────────────────────────
+
+
+@prefix kkot:    <http://kkotkata.org/ontology#> .
+@prefix kkotw:   <http://kkotkata.org/word/> .
+@prefix kkote:   <http://kkotkata.org/example/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+
+# ── Class & Property Definitions ──────────────────────────────────
+
+kkot:Word a owl:Class ;
+    rdfs:label "Korean Vocabulary Word" .
+
+kkot:Example a owl:Class ;
+    rdfs:label "Example Sentence" .
+
+kkot:id a owl:DatatypeProperty ;
+    rdfs:domain kkot:Word ;
+    rdfs:range  xsd:integer ;
+    rdfs:label  "numeric ID" .
+
+kkot:korean a owl:DatatypeProperty ;
+    rdfs:domain kkot:Word ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "Korean word (hangul)" .
+
+kkot:romanization a owl:DatatypeProperty ;
+    rdfs:domain kkot:Word ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "Romanization (RR)" .
+
+kkot:bahasaIndonesia a owl:DatatypeProperty ;
+    rdfs:domain kkot:Word ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "Bahasa Indonesia translation" .
+
+kkot:english a owl:DatatypeProperty ;
+    rdfs:domain kkot:Word ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "English translation" .
+
+kkot:type a owl:DatatypeProperty ;
+    rdfs:domain kkot:Word ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "part of speech / word type" .
+
+kkot:category a owl:DatatypeProperty ;
+    rdfs:domain kkot:Word ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "thematic category" .
+
+kkot:hasSynonym a owl:ObjectProperty ;
+    rdfs:domain kkot:Word ;
+    rdfs:range  kkot:Word ;
+    rdfs:label  "has synonym" ;
+    owl:inverseOf kkot:isSynonymOf .
+
+kkot:hasAntonym a owl:ObjectProperty ;
+    rdfs:domain kkot:Word ;
+    rdfs:range  kkot:Word ;
+    rdfs:label  "has antonym" ;
+    owl:inverseOf kkot:isAntonymOf .
+
+kkot:hasExample a owl:ObjectProperty ;
+    rdfs:domain kkot:Word ;
+    rdfs:range  kkot:Example ;
+    rdfs:label  "has example sentence" .
+
+kkot:sentenceKorean a owl:DatatypeProperty ;
+    rdfs:domain kkot:Example ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "example sentence in Korean" .
+
+kkot:sentenceRomanization a owl:DatatypeProperty ;
+    rdfs:domain kkot:Example ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "romanization of example sentence" .
+
+kkot:sentenceIndonesia a owl:DatatypeProperty ;
+    rdfs:domain kkot:Example ;
+    rdfs:range  xsd:string ;
+    rdfs:label  "Indonesian translation of example sentence" .
+
+# ── Data ──────────────────────────────────────────────────────────
+
+
+kkotw:word_1_안녕하세요
+    a kkot:Word
+    ; kkot:id 1
+    ; kkot:korean "안녕하세요"@ko
+    ; kkot:romanization "annyeonghaseyo"
+    ; kkot:bahasaIndonesia "halo (formal)"@id
+    ; kkot:english "hello (formal)"@en
+    ; kkot:type "expression"
+    ; kkot:category "greeting"
+    ; kkot:hasExample kkote:example_1
+    .
+
+kkote:example_1
+    a kkot:Example
+    ; kkot:sentenceKorean "안녕하세요, 처음 뵙겠습니다."@ko
+    ; kkot:sentenceRomanization "annyeonghaseyo, cheoeum boepgesseumnida."
+    ; kkot:sentenceIndonesia "Halo, salam kenal."@id
+    .
+
+kkotw:word_2_안녕
+    a kkot:Word
+    ; kkot:id 2
+    ; kkot:korean "안녕"@ko
+    ; kkot:romanization "annyeong"
+    ; kkot:bahasaIndonesia "hai / halo (informal)"@id
+    ; kkot:english "hi / hello (informal)"@en
+    ; kkot:type "expression"
+    ; kkot:category "greeting"
+    ; kkot:hasExample kkote:example_2
+    .
+
+kkote:example_2
+    a kkot:Example
+    ; kkot:sentenceKorean "안녕! 잘 지냈어?"@ko
+    ; kkot:sentenceRomanization "annyeong! jal jinaesseo?"
+    ; kkot:sentenceIndonesia "Hai! Apa kabar?"@id
+    .
+
+kkotw:word_3_감사합니다
+    a kkot:Word
+    ; kkot:id 3
+    ; kkot:korean "감사합니다"@ko
+    ; kkot:romanization "gamsahamnida"
+    ; kkot:bahasaIndonesia "terima kasih (formal)"@id
+    ; kkot:english "thank you (formal)"@en
+    ; kkot:type "expression"
+    ; kkot:category "greeting"
+    ; kkot:hasSynonym kkotw:word_4_고마워요
+    ; kkot:hasExample kkote:example_3
+    .
+
+kkote:example_3
+    a kkot:Example
+    ; kkot:sentenceKorean "도와주셔서 감사합니다."@ko
+    ; kkot:sentenceRomanization "dowajusyeoseo gamsahamnida."
+    ; kkot:sentenceIndonesia "Terima kasih sudah membantu."@id
+    .
+
+kkotw:word_4_고마워요
+    a kkot:Word
+    ; kkot:id 4
+    ; kkot:korean "고마워요"@ko
+    ; kkot:romanization "gomawoyo"
+    ; kkot:bahasaIndonesia "terima kasih (semi-formal)"@id
+    ; kkot:english "thank you (semi-formal)"@en
+    ; kkot:type "expression"
+    ; kkot:category "greeting"
+    ; kkot:hasSynonym kkotw:word_3_감사합니다
+    ; kkot:hasExample kkote:example_4
+    .
+
+kkote:example_4
+    a kkot:Example
+    ; kkot:sentenceKorean "선물 고마워요."@ko
+    ; kkot:sentenceRomanization "seonmul gomawoyo."
+    ; kkot:sentenceIndonesia "Terima kasih atas hadiahnya."@id
+    .
+
+kkotw:word_5_죄송합니다
+    a kkot:Word
+    ; kkot:id 5
+    ; kkot:korean "죄송합니다"@ko
+    ; kkot:romanization "joesonghamnida"
+    ; kkot:bahasaIndonesia "maaf (formal)"@id
+    ; kkot:english "sorry (formal)"@en
+    ; kkot:type "expression"
+    ; kkot:category "greeting"
+    ; kkot:hasSynonym kkotw:word_6_미안해요
+    ; kkot:hasExample kkote:example_5
+    .
+
+kkote:example_5
+    a kkot:Example
+    ; kkot:sentenceKorean "늦어서 죄송합니다."@ko
+    ; kkot:sentenceRomanization "neujeoseo joesonghamnida."
+    ; kkot:sentenceIndonesia "Maaf sudah terlambat."@id
+    .
+
+kkotw:word_6_미안해요
+    a kkot:Word
+    ; kkot:id 6
+    ; kkot:korean "미안해요"@ko
+    ; kkot:romanization "mianhaeyo"
+    ; kkot:bahasaIndonesia "maaf (semi-formal)"@id
+    ; kkot:english "sorry (semi-formal)"@en
+    ; kkot:type "expression"
+    ; kkot:category "greeting"
+    ; kkot:hasSynonym kkotw:word_5_죄송합니다
+    ; kkot:hasExample kkote:example_6
+    .
+
+kkote:example_6
+    a kkot:Example
+    ; kkot:sentenceKorean "미안해요, 제 실수예요."@ko
+    ; kkot:sentenceRomanization "mianhaeyo, je silsuyeyo."
+    ; kkot:sentenceIndonesia "Maaf, itu salah saya."@id
+    .
+
+kkotw:word_7_반갑습니다
+    a kkot:Word
+    ; kkot:id 7
+    ; kkot:korean "반갑습니다"@ko
+    ; kkot:romanization "bangapseumnida"
+    ; kkot:bahasaIndonesia "senang bertemu"@id
+    ; kkot:english "nice to meet you"@en
+    ; kkot:type "expression"
+    ; kkot:category "greeting"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "만나서 반가워요"@ko ; kkot:romanization "mannaseo bangawoyo" ; kkot:bahasaIndonesia "senang bertemu (semi-formal)"@id ; kkot:english "nice to meet you (semi-formal)"@en ]
+    ; kkot:hasExample kkote:example_7
+    .
+
+kkote:example_7
+    a kkot:Example
+    ; kkot:sentenceKorean "처음 뵙겠습니다, 반갑습니다."@ko
+    ; kkot:sentenceRomanization "cheoeum boepgesseumnida, bangapseumnida."
+    ; kkot:sentenceIndonesia "Salam kenal, senang bertemu."@id
+    .
+
+kkotw:word_8_네
+    a kkot:Word
+    ; kkot:id 8
+    ; kkot:korean "네"@ko
+    ; kkot:romanization "ne"
+    ; kkot:bahasaIndonesia "ya / iya"@id
+    ; kkot:english "yes"@en
+    ; kkot:type "expression"
+    ; kkot:category "greeting"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "맞아요"@ko ; kkot:romanization "majayo" ; kkot:bahasaIndonesia "benar / iya"@id ; kkot:english "that's right / yes"@en ]
+    ; kkot:hasAntonym kkotw:word_9_아니요
+    ; kkot:hasExample kkote:example_8
+    .
+
+kkote:example_8
+    a kkot:Example
+    ; kkot:sentenceKorean "네, 알겠습니다."@ko
+    ; kkot:sentenceRomanization "ne, algesseumnida."
+    ; kkot:sentenceIndonesia "Ya, saya mengerti."@id
+    .
+
+kkotw:word_9_아니요
+    a kkot:Word
+    ; kkot:id 9
+    ; kkot:korean "아니요"@ko
+    ; kkot:romanization "aniyo"
+    ; kkot:bahasaIndonesia "tidak / bukan"@id
+    ; kkot:english "no"@en
+    ; kkot:type "expression"
+    ; kkot:category "greeting"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "아니에요"@ko ; kkot:romanization "anieyo" ; kkot:bahasaIndonesia "bukan / tidak"@id ; kkot:english "it's not"@en ]
+    ; kkot:hasAntonym kkotw:word_8_네
+    ; kkot:hasExample kkote:example_9
+    .
+
+kkote:example_9
+    a kkot:Example
+    ; kkot:sentenceKorean "아니요, 저는 학생이 아니에요."@ko
+    ; kkot:sentenceRomanization "aniyo, jeoneun haksaengi anieyo."
+    ; kkot:sentenceIndonesia "Tidak, saya bukan pelajar."@id
+    .
+
+kkotw:word_10_잘_부탁드립니다
+    a kkot:Word
+    ; kkot:id 10
+    ; kkot:korean "잘 부탁드립니다"@ko
+    ; kkot:romanization "jal butakdeurimnida"
+    ; kkot:bahasaIndonesia "mohon bimbingannya"@id
+    ; kkot:english "please take care of me"@en
+    ; kkot:type "expression"
+    ; kkot:category "greeting"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "잘 부탁해요"@ko ; kkot:romanization "jal butakaehaeyo" ; kkot:bahasaIndonesia "mohon bantuannya (semi-formal)"@id ; kkot:english "please take care of me (semi-formal)"@en ]
+    ; kkot:hasExample kkote:example_10
+    .
+
+kkote:example_10
+    a kkot:Example
+    ; kkot:sentenceKorean "앞으로 잘 부탁드립니다."@ko
+    ; kkot:sentenceRomanization "apeuro jal butakdeurimnida."
+    ; kkot:sentenceIndonesia "Mohon bimbingannya ke depan."@id
+    .
+
+kkotw:word_11_일
+    a kkot:Word
+    ; kkot:id 11
+    ; kkot:korean "일"@ko
+    ; kkot:romanization "il"
+    ; kkot:bahasaIndonesia "satu (sino-Korea)"@id
+    ; kkot:english "one (sino-Korean)"@en
+    ; kkot:type "numeral"
+    ; kkot:category "number_time"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "하나"@ko ; kkot:romanization "hana" ; kkot:bahasaIndonesia "satu (Korea asli)"@id ; kkot:english "one (native Korean)"@en ]
+    ; kkot:hasExample kkote:example_11
+    .
+
+kkote:example_11
+    a kkot:Example
+    ; kkot:sentenceKorean "일 더하기 일은 이예요."@ko
+    ; kkot:sentenceRomanization "il deohagi ireun iyeyo."
+    ; kkot:sentenceIndonesia "Satu ditambah satu adalah dua."@id
+    .
+
+kkotw:word_12_이
+    a kkot:Word
+    ; kkot:id 12
+    ; kkot:korean "이"@ko
+    ; kkot:romanization "i"
+    ; kkot:bahasaIndonesia "dua (sino-Korea)"@id
+    ; kkot:english "two (sino-Korean)"@en
+    ; kkot:type "numeral"
+    ; kkot:category "number_time"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "둘"@ko ; kkot:romanization "dul" ; kkot:bahasaIndonesia "dua (Korea asli)"@id ; kkot:english "two (native Korean)"@en ]
+    ; kkot:hasExample kkote:example_12
+    .
+
+kkote:example_12
+    a kkot:Example
+    ; kkot:sentenceKorean "이 번 버스를 타세요."@ko
+    ; kkot:sentenceRomanization "i beon beoseureul taseyo."
+    ; kkot:sentenceIndonesia "Naik bus nomor dua."@id
+    .
+
+kkotw:word_13_삼
+    a kkot:Word
+    ; kkot:id 13
+    ; kkot:korean "삼"@ko
+    ; kkot:romanization "sam"
+    ; kkot:bahasaIndonesia "tiga (sino-Korea)"@id
+    ; kkot:english "three (sino-Korean)"@en
+    ; kkot:type "numeral"
+    ; kkot:category "number_time"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "셋"@ko ; kkot:romanization "set" ; kkot:bahasaIndonesia "tiga (Korea asli)"@id ; kkot:english "three (native Korean)"@en ]
+    ; kkot:hasExample kkote:example_13
+    .
+
+kkote:example_13
+    a kkot:Example
+    ; kkot:sentenceKorean "삼 일 후에 만나요."@ko
+    ; kkot:sentenceRomanization "sam il hue mannayo."
+    ; kkot:sentenceIndonesia "Kita bertemu tiga hari lagi."@id
+    .
+
+kkotw:word_14_오늘
+    a kkot:Word
+    ; kkot:id 14
+    ; kkot:korean "오늘"@ko
+    ; kkot:romanization "oneul"
+    ; kkot:bahasaIndonesia "hari ini"@id
+    ; kkot:english "today"@en
+    ; kkot:type "noun"
+    ; kkot:category "number_time"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "금일"@ko ; kkot:romanization "geumil" ; kkot:bahasaIndonesia "hari ini (formal/tulisan)"@id ; kkot:english "today (formal/written)"@en ]
+    ; kkot:hasExample kkote:example_14
+    .
+
+kkote:example_14
+    a kkot:Example
+    ; kkot:sentenceKorean "오늘 날씨가 좋아요."@ko
+    ; kkot:sentenceRomanization "oneul nalssiga joayo."
+    ; kkot:sentenceIndonesia "Cuaca hari ini bagus."@id
+    .
+
+kkotw:word_15_어제
+    a kkot:Word
+    ; kkot:id 15
+    ; kkot:korean "어제"@ko
+    ; kkot:romanization "eoje"
+    ; kkot:bahasaIndonesia "kemarin"@id
+    ; kkot:english "yesterday"@en
+    ; kkot:type "noun"
+    ; kkot:category "number_time"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "전날"@ko ; kkot:romanization "jeonnal" ; kkot:bahasaIndonesia "hari sebelumnya"@id ; kkot:english "the day before"@en ]
+    ; kkot:hasAntonym kkotw:word_16_내일
+    ; kkot:hasExample kkote:example_15
+    .
+
+kkote:example_15
+    a kkot:Example
+    ; kkot:sentenceKorean "어제 영화를 봤어요."@ko
+    ; kkot:sentenceRomanization "eoje yeonghwareul bwasseoyo."
+    ; kkot:sentenceIndonesia "Kemarin saya menonton film."@id
+    .
+
+kkotw:word_16_내일
+    a kkot:Word
+    ; kkot:id 16
+    ; kkot:korean "내일"@ko
+    ; kkot:romanization "naeil"
+    ; kkot:bahasaIndonesia "besok"@id
+    ; kkot:english "tomorrow"@en
+    ; kkot:type "noun"
+    ; kkot:category "number_time"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "다음 날"@ko ; kkot:romanization "daeum nal" ; kkot:bahasaIndonesia "hari berikutnya"@id ; kkot:english "the next day"@en ]
+    ; kkot:hasAntonym kkotw:word_15_어제
+    ; kkot:hasExample kkote:example_16
+    .
+
+kkote:example_16
+    a kkot:Example
+    ; kkot:sentenceKorean "내일 학교에 가요."@ko
+    ; kkot:sentenceRomanization "naeil hakgyoe gayo."
+    ; kkot:sentenceIndonesia "Besok pergi ke sekolah."@id
+    .
+
+kkotw:word_17_지금
+    a kkot:Word
+    ; kkot:id 17
+    ; kkot:korean "지금"@ko
+    ; kkot:romanization "jigeum"
+    ; kkot:bahasaIndonesia "sekarang"@id
+    ; kkot:english "now"@en
+    ; kkot:type "adverb"
+    ; kkot:category "number_time"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "현재"@ko ; kkot:romanization "hyeonjae" ; kkot:bahasaIndonesia "saat ini / masa kini"@id ; kkot:english "present / currently"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "나중에"@ko ; kkot:romanization "najunge" ; kkot:bahasaIndonesia "nanti / belakangan"@id ; kkot:english "later"@en ]
+    ; kkot:hasExample kkote:example_17
+    .
+
+kkote:example_17
+    a kkot:Example
+    ; kkot:sentenceKorean "지금 몇 시예요?"@ko
+    ; kkot:sentenceRomanization "jigeum myeot siyeyo?"
+    ; kkot:sentenceIndonesia "Sekarang jam berapa?"@id
+    .
+
+kkotw:word_18_아침
+    a kkot:Word
+    ; kkot:id 18
+    ; kkot:korean "아침"@ko
+    ; kkot:romanization "achim"
+    ; kkot:bahasaIndonesia "pagi"@id
+    ; kkot:english "morning"@en
+    ; kkot:type "noun"
+    ; kkot:category "number_time"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "오전"@ko ; kkot:romanization "ojeon" ; kkot:bahasaIndonesia "pagi / sebelum tengah hari"@id ; kkot:english "morning / a.m."@en ]
+    ; kkot:hasAntonym kkotw:word_19_저녁
+    ; kkot:hasExample kkote:example_18
+    .
+
+kkote:example_18
+    a kkot:Example
+    ; kkot:sentenceKorean "아침에 운동해요."@ko
+    ; kkot:sentenceRomanization "achime undonghaeyo."
+    ; kkot:sentenceIndonesia "Olahraga di pagi hari."@id
+    .
+
+kkotw:word_19_저녁
+    a kkot:Word
+    ; kkot:id 19
+    ; kkot:korean "저녁"@ko
+    ; kkot:romanization "jeonyeok"
+    ; kkot:bahasaIndonesia "malam / sore hari"@id
+    ; kkot:english "evening / dinner"@en
+    ; kkot:type "noun"
+    ; kkot:category "number_time"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "밤"@ko ; kkot:romanization "bam" ; kkot:bahasaIndonesia "malam (larut)"@id ; kkot:english "night (late)"@en ]
+    ; kkot:hasAntonym kkotw:word_18_아침
+    ; kkot:hasExample kkote:example_19
+    .
+
+kkote:example_19
+    a kkot:Example
+    ; kkot:sentenceKorean "저녁에 가족과 함께 먹어요."@ko
+    ; kkot:sentenceRomanization "jeonyeoge gajokgwa hamkke meogeoyo."
+    ; kkot:sentenceIndonesia "Makan malam bersama keluarga."@id
+    .
+
+kkotw:word_20_시간
+    a kkot:Word
+    ; kkot:id 20
+    ; kkot:korean "시간"@ko
+    ; kkot:romanization "sigan"
+    ; kkot:bahasaIndonesia "waktu / jam"@id
+    ; kkot:english "time / hour"@en
+    ; kkot:type "noun"
+    ; kkot:category "number_time"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "시각"@ko ; kkot:romanization "sigak" ; kkot:bahasaIndonesia "waktu (titik tertentu)"@id ; kkot:english "time (specific moment)"@en ]
+    ; kkot:hasExample kkote:example_20
+    .
+
+kkote:example_20
+    a kkot:Example
+    ; kkot:sentenceKorean "시간이 없어요."@ko
+    ; kkot:sentenceRomanization "sigani eopseoyo."
+    ; kkot:sentenceIndonesia "Saya tidak punya waktu."@id
+    .
+
+kkotw:word_21_어머니
+    a kkot:Word
+    ; kkot:id 21
+    ; kkot:korean "어머니"@ko
+    ; kkot:romanization "eomeoni"
+    ; kkot:bahasaIndonesia "ibu"@id
+    ; kkot:english "mother"@en
+    ; kkot:type "noun"
+    ; kkot:category "family_people"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "엄마"@ko ; kkot:romanization "eomma" ; kkot:bahasaIndonesia "mama (informal)"@id ; kkot:english "mom (informal)"@en ]
+    ; kkot:hasAntonym kkotw:word_22_아버지
+    ; kkot:hasExample kkote:example_21
+    .
+
+kkote:example_21
+    a kkot:Example
+    ; kkot:sentenceKorean "어머니를 사랑해요."@ko
+    ; kkot:sentenceRomanization "eomeonireul saranghaeyo."
+    ; kkot:sentenceIndonesia "Saya mencintai ibu."@id
+    .
+
+kkotw:word_22_아버지
+    a kkot:Word
+    ; kkot:id 22
+    ; kkot:korean "아버지"@ko
+    ; kkot:romanization "abeoji"
+    ; kkot:bahasaIndonesia "ayah"@id
+    ; kkot:english "father"@en
+    ; kkot:type "noun"
+    ; kkot:category "family_people"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "아빠"@ko ; kkot:romanization "appa" ; kkot:bahasaIndonesia "papa (informal)"@id ; kkot:english "dad (informal)"@en ]
+    ; kkot:hasAntonym kkotw:word_21_어머니
+    ; kkot:hasExample kkote:example_22
+    .
+
+kkote:example_22
+    a kkot:Example
+    ; kkot:sentenceKorean "아버지가 일하세요."@ko
+    ; kkot:sentenceRomanization "abeojiga ilhaseyo."
+    ; kkot:sentenceIndonesia "Ayah bekerja."@id
+    .
+
+kkotw:word_23_형
+    a kkot:Word
+    ; kkot:id 23
+    ; kkot:korean "형"@ko
+    ; kkot:romanization "hyeong"
+    ; kkot:bahasaIndonesia "kakak laki-laki (dari sudut pandang laki-laki)"@id
+    ; kkot:english "older brother (male speaker)"@en
+    ; kkot:type "noun"
+    ; kkot:category "family_people"
+    ; kkot:hasSynonym kkotw:word_24_오빠
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "남동생"@ko ; kkot:romanization "namdongsaeng" ; kkot:bahasaIndonesia "adik laki-laki"@id ; kkot:english "younger brother"@en ]
+    ; kkot:hasExample kkote:example_23
+    .
+
+kkote:example_23
+    a kkot:Example
+    ; kkot:sentenceKorean "형이랑 게임해요."@ko
+    ; kkot:sentenceRomanization "hyeongirang geimhaeyo."
+    ; kkot:sentenceIndonesia "Main game sama kakak laki-laki."@id
+    .
+
+kkotw:word_24_오빠
+    a kkot:Word
+    ; kkot:id 24
+    ; kkot:korean "오빠"@ko
+    ; kkot:romanization "oppa"
+    ; kkot:bahasaIndonesia "kakak laki-laki (dari sudut pandang perempuan)"@id
+    ; kkot:english "older brother (female speaker)"@en
+    ; kkot:type "noun"
+    ; kkot:category "family_people"
+    ; kkot:hasSynonym kkotw:word_23_형
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "남동생"@ko ; kkot:romanization "namdongsaeng" ; kkot:bahasaIndonesia "adik laki-laki"@id ; kkot:english "younger brother"@en ]
+    ; kkot:hasExample kkote:example_24
+    .
+
+kkote:example_24
+    a kkot:Example
+    ; kkot:sentenceKorean "오빠가 저를 도와줬어요."@ko
+    ; kkot:sentenceRomanization "oppaga jeoreul dowajwosseoyo."
+    ; kkot:sentenceIndonesia "Kakak laki-laki membantuku."@id
+    .
+
+kkotw:word_25_언니
+    a kkot:Word
+    ; kkot:id 25
+    ; kkot:korean "언니"@ko
+    ; kkot:romanization "eonni"
+    ; kkot:bahasaIndonesia "kakak perempuan (dari sudut pandang perempuan)"@id
+    ; kkot:english "older sister (female speaker)"@en
+    ; kkot:type "noun"
+    ; kkot:category "family_people"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "누나"@ko ; kkot:romanization "nuna" ; kkot:bahasaIndonesia "kakak perempuan (dari sudut pandang laki-laki)"@id ; kkot:english "older sister (male speaker)"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "여동생"@ko ; kkot:romanization "yeodongsaeng" ; kkot:bahasaIndonesia "adik perempuan"@id ; kkot:english "younger sister"@en ]
+    ; kkot:hasExample kkote:example_25
+    .
+
+kkote:example_25
+    a kkot:Example
+    ; kkot:sentenceKorean "언니랑 쇼핑 갔어요."@ko
+    ; kkot:sentenceRomanization "eonnirang syoping gasseoyo."
+    ; kkot:sentenceIndonesia "Pergi belanja dengan kakak perempuan."@id
+    .
+
+kkotw:word_26_동생
+    a kkot:Word
+    ; kkot:id 26
+    ; kkot:korean "동생"@ko
+    ; kkot:romanization "dongsaeng"
+    ; kkot:bahasaIndonesia "adik (laki-laki atau perempuan)"@id
+    ; kkot:english "younger sibling"@en
+    ; kkot:type "noun"
+    ; kkot:category "family_people"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "아우"@ko ; kkot:romanization "au" ; kkot:bahasaIndonesia "adik (formal/sastra)"@id ; kkot:english "younger sibling (formal)"@en ]
+    ; kkot:hasAntonym kkotw:word_23_형
+    ; kkot:hasExample kkote:example_26
+    .
+
+kkote:example_26
+    a kkot:Example
+    ; kkot:sentenceKorean "동생이 귀여워요."@ko
+    ; kkot:sentenceRomanization "dongsaengi gwiyeowoyo."
+    ; kkot:sentenceIndonesia "Adiknya lucu."@id
+    .
+
+kkotw:word_27_할머니
+    a kkot:Word
+    ; kkot:id 27
+    ; kkot:korean "할머니"@ko
+    ; kkot:romanization "halmeoni"
+    ; kkot:bahasaIndonesia "nenek"@id
+    ; kkot:english "grandmother"@en
+    ; kkot:type "noun"
+    ; kkot:category "family_people"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "조모"@ko ; kkot:romanization "jomo" ; kkot:bahasaIndonesia "nenek (formal/tulisan ilmiah)"@id ; kkot:english "grandmother (formal/written)"@en ]
+    ; kkot:hasAntonym kkotw:word_28_할아버지
+    ; kkot:hasExample kkote:example_27
+    .
+
+kkote:example_27
+    a kkot:Example
+    ; kkot:sentenceKorean "할머니 댁에 갔어요."@ko
+    ; kkot:sentenceRomanization "halmeoni daege gasseoyo."
+    ; kkot:sentenceIndonesia "Saya pergi ke rumah nenek."@id
+    .
+
+kkotw:word_28_할아버지
+    a kkot:Word
+    ; kkot:id 28
+    ; kkot:korean "할아버지"@ko
+    ; kkot:romanization "harabeoji"
+    ; kkot:bahasaIndonesia "kakek"@id
+    ; kkot:english "grandfather"@en
+    ; kkot:type "noun"
+    ; kkot:category "family_people"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "조부"@ko ; kkot:romanization "jobu" ; kkot:bahasaIndonesia "kakek (formal/tulisan ilmiah)"@id ; kkot:english "grandfather (formal/written)"@en ]
+    ; kkot:hasAntonym kkotw:word_27_할머니
+    ; kkot:hasExample kkote:example_28
+    .
+
+kkote:example_28
+    a kkot:Example
+    ; kkot:sentenceKorean "할아버지가 이야기를 들려줬어요."@ko
+    ; kkot:sentenceRomanization "harabeojiga iyagireul deullyeojwosseoyo."
+    ; kkot:sentenceIndonesia "Kakek menceritakan sebuah kisah."@id
+    .
+
+kkotw:word_29_친구
+    a kkot:Word
+    ; kkot:id 29
+    ; kkot:korean "친구"@ko
+    ; kkot:romanization "chingu"
+    ; kkot:bahasaIndonesia "teman / sahabat"@id
+    ; kkot:english "friend"@en
+    ; kkot:type "noun"
+    ; kkot:category "family_people"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "벗"@ko ; kkot:romanization "beot" ; kkot:bahasaIndonesia "sahabat (formal/puitis)"@id ; kkot:english "friend (formal/poetic)"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "적"@ko ; kkot:romanization "jeok" ; kkot:bahasaIndonesia "musuh"@id ; kkot:english "enemy"@en ]
+    ; kkot:hasExample kkote:example_29
+    .
+
+kkote:example_29
+    a kkot:Example
+    ; kkot:sentenceKorean "친구랑 카페에 가요."@ko
+    ; kkot:sentenceRomanization "chingurang kapee gayo."
+    ; kkot:sentenceIndonesia "Pergi ke kafe dengan teman."@id
+    .
+
+kkotw:word_30_학생
+    a kkot:Word
+    ; kkot:id 30
+    ; kkot:korean "학생"@ko
+    ; kkot:romanization "haksaeng"
+    ; kkot:bahasaIndonesia "pelajar / mahasiswa"@id
+    ; kkot:english "student"@en
+    ; kkot:type "noun"
+    ; kkot:category "family_people"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "학도"@ko ; kkot:romanization "hakdo" ; kkot:bahasaIndonesia "pelajar (formal/puitis)"@id ; kkot:english "student (formal/poetic)"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "선생님"@ko ; kkot:romanization "seonsaengnim" ; kkot:bahasaIndonesia "guru"@id ; kkot:english "teacher"@en ]
+    ; kkot:hasExample kkote:example_30
+    .
+
+kkote:example_30
+    a kkot:Example
+    ; kkot:sentenceKorean "저는 대학교 학생이에요."@ko
+    ; kkot:sentenceRomanization "jeoneun daehakgyo haksaengieyo."
+    ; kkot:sentenceIndonesia "Saya mahasiswa."@id
+    .
+
+kkotw:word_31_밥
+    a kkot:Word
+    ; kkot:id 31
+    ; kkot:korean "밥"@ko
+    ; kkot:romanization "bap"
+    ; kkot:bahasaIndonesia "nasi / makanan"@id
+    ; kkot:english "rice / meal"@en
+    ; kkot:type "noun"
+    ; kkot:category "food_drink"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "쌀"@ko ; kkot:romanization "ssal" ; kkot:bahasaIndonesia "beras (mentah)"@id ; kkot:english "rice (uncooked)"@en ]
+    ; kkot:hasExample kkote:example_31
+    .
+
+kkote:example_31
+    a kkot:Example
+    ; kkot:sentenceKorean "밥 먹었어요?"@ko
+    ; kkot:sentenceRomanization "bap meogeosseoyo?"
+    ; kkot:sentenceIndonesia "Sudah makan?"@id
+    .
+
+kkotw:word_32_물
+    a kkot:Word
+    ; kkot:id 32
+    ; kkot:korean "물"@ko
+    ; kkot:romanization "mul"
+    ; kkot:bahasaIndonesia "air"@id
+    ; kkot:english "water"@en
+    ; kkot:type "noun"
+    ; kkot:category "food_drink"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "음료"@ko ; kkot:romanization "eumnyo" ; kkot:bahasaIndonesia "minuman"@id ; kkot:english "beverage"@en ]
+    ; kkot:hasExample kkote:example_32
+    .
+
+kkote:example_32
+    a kkot:Example
+    ; kkot:sentenceKorean "물 한 잔 주세요."@ko
+    ; kkot:sentenceRomanization "mul han jan juseyo."
+    ; kkot:sentenceIndonesia "Tolong satu gelas air."@id
+    .
+
+kkotw:word_33_김치
+    a kkot:Word
+    ; kkot:id 33
+    ; kkot:korean "김치"@ko
+    ; kkot:romanization "gimchi"
+    ; kkot:bahasaIndonesia "kimchi"@id
+    ; kkot:english "kimchi"@en
+    ; kkot:type "noun"
+    ; kkot:category "food_drink"
+    ; kkot:hasExample kkote:example_33
+    .
+
+kkote:example_33
+    a kkot:Example
+    ; kkot:sentenceKorean "김치는 매워요."@ko
+    ; kkot:sentenceRomanization "gimchineun maewoyo."
+    ; kkot:sentenceIndonesia "Kimchi itu pedas."@id
+    .
+
+kkotw:word_34_불고기
+    a kkot:Word
+    ; kkot:id 34
+    ; kkot:korean "불고기"@ko
+    ; kkot:romanization "bulgogi"
+    ; kkot:bahasaIndonesia "bulgogi (daging sapi panggang manis)"@id
+    ; kkot:english "bulgogi (grilled marinated beef)"@en
+    ; kkot:type "noun"
+    ; kkot:category "food_drink"
+    ; kkot:hasExample kkote:example_34
+    .
+
+kkote:example_34
+    a kkot:Example
+    ; kkot:sentenceKorean "불고기가 정말 맛있어요."@ko
+    ; kkot:sentenceRomanization "bulgogiga jeongmal massisseoyo."
+    ; kkot:sentenceIndonesia "Bulgogi sangat enak."@id
+    .
+
+kkotw:word_35_비빔밥
+    a kkot:Word
+    ; kkot:id 35
+    ; kkot:korean "비빔밥"@ko
+    ; kkot:romanization "bibimbap"
+    ; kkot:bahasaIndonesia "nasi campur (dengan sayuran dan gochujang)"@id
+    ; kkot:english "mixed rice bowl"@en
+    ; kkot:type "noun"
+    ; kkot:category "food_drink"
+    ; kkot:hasExample kkote:example_35
+    .
+
+kkote:example_35
+    a kkot:Example
+    ; kkot:sentenceKorean "비빔밥에 고추장을 넣어요."@ko
+    ; kkot:sentenceRomanization "bibimbabe gochujjangeul neoeoyo."
+    ; kkot:sentenceIndonesia "Masukkan gochujang ke bibimbap."@id
+    .
+
+kkotw:word_36_라면
+    a kkot:Word
+    ; kkot:id 36
+    ; kkot:korean "라면"@ko
+    ; kkot:romanization "ramyeon"
+    ; kkot:bahasaIndonesia "mi instan"@id
+    ; kkot:english "instant noodle"@en
+    ; kkot:type "noun"
+    ; kkot:category "food_drink"
+    ; kkot:hasExample kkote:example_36
+    .
+
+kkote:example_36
+    a kkot:Example
+    ; kkot:sentenceKorean "라면 끓여 먹어요."@ko
+    ; kkot:sentenceRomanization "ramyeon kkeulhyeo meogeoyo."
+    ; kkot:sentenceIndonesia "Masak dan makan ramyeon."@id
+    .
+
+kkotw:word_37_떡볶이
+    a kkot:Word
+    ; kkot:id 37
+    ; kkot:korean "떡볶이"@ko
+    ; kkot:romanization "tteokbokki"
+    ; kkot:bahasaIndonesia "tteokbokki (kue beras saus pedas)"@id
+    ; kkot:english "spicy rice cake"@en
+    ; kkot:type "noun"
+    ; kkot:category "food_drink"
+    ; kkot:hasExample kkote:example_37
+    .
+
+kkote:example_37
+    a kkot:Example
+    ; kkot:sentenceKorean "떡볶이는 매운데 맛있어요."@ko
+    ; kkot:sentenceRomanization "tteokbokkineun maeunde massisseoyo."
+    ; kkot:sentenceIndonesia "Tteokbokki pedas tapi enak."@id
+    .
+
+kkotw:word_38_커피
+    a kkot:Word
+    ; kkot:id 38
+    ; kkot:korean "커피"@ko
+    ; kkot:romanization "keopi"
+    ; kkot:bahasaIndonesia "kopi"@id
+    ; kkot:english "coffee"@en
+    ; kkot:type "noun"
+    ; kkot:category "food_drink"
+    ; kkot:hasAntonym kkotw:word_39_차
+    ; kkot:hasExample kkote:example_38
+    .
+
+kkote:example_38
+    a kkot:Example
+    ; kkot:sentenceKorean "아침마다 커피를 마셔요."@ko
+    ; kkot:sentenceRomanization "achimmada keopireul masyeoyo."
+    ; kkot:sentenceIndonesia "Setiap pagi minum kopi."@id
+    .
+
+kkotw:word_39_차
+    a kkot:Word
+    ; kkot:id 39
+    ; kkot:korean "차"@ko
+    ; kkot:romanization "cha"
+    ; kkot:bahasaIndonesia "teh"@id
+    ; kkot:english "tea"@en
+    ; kkot:type "noun"
+    ; kkot:category "food_drink"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "녹차"@ko ; kkot:romanization "nokcha" ; kkot:bahasaIndonesia "teh hijau"@id ; kkot:english "green tea"@en ]
+    ; kkot:hasAntonym kkotw:word_38_커피
+    ; kkot:hasExample kkote:example_39
+    .
+
+kkote:example_39
+    a kkot:Example
+    ; kkot:sentenceKorean "녹차 한 잔 마실래요?"@ko
+    ; kkot:sentenceRomanization "nokcha han jan masillaeoyo?"
+    ; kkot:sentenceIndonesia "Mau minum teh hijau?"@id
+    .
+
+kkotw:word_40_과일
+    a kkot:Word
+    ; kkot:id 40
+    ; kkot:korean "과일"@ko
+    ; kkot:romanization "gwail"
+    ; kkot:bahasaIndonesia "buah-buahan"@id
+    ; kkot:english "fruit"@en
+    ; kkot:type "noun"
+    ; kkot:category "food_drink"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "과실"@ko ; kkot:romanization "gwasil" ; kkot:bahasaIndonesia "buah (formal/ilmiah)"@id ; kkot:english "fruit (formal/scientific)"@en ]
+    ; kkot:hasExample kkote:example_40
+    .
+
+kkote:example_40
+    a kkot:Example
+    ; kkot:sentenceKorean "과일을 많이 먹어야 해요."@ko
+    ; kkot:sentenceRomanization "gwailreul mani meogeoaya haeyo."
+    ; kkot:sentenceIndonesia "Harus banyak makan buah."@id
+    .
+
+kkotw:word_41_야채
+    a kkot:Word
+    ; kkot:id 41
+    ; kkot:korean "야채"@ko
+    ; kkot:romanization "yachae"
+    ; kkot:bahasaIndonesia "sayuran"@id
+    ; kkot:english "vegetable"@en
+    ; kkot:type "noun"
+    ; kkot:category "food_drink"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "채소"@ko ; kkot:romanization "chaeso" ; kkot:bahasaIndonesia "sayuran (kata yang lebih umum)"@id ; kkot:english "vegetable (more common word)"@en ]
+    ; kkot:hasExample kkote:example_41
+    .
+
+kkote:example_41
+    a kkot:Example
+    ; kkot:sentenceKorean "야채를 골고루 먹어요."@ko
+    ; kkot:sentenceRomanization "yachaereul golgoroo meogeoyo."
+    ; kkot:sentenceIndonesia "Makan sayuran secara merata."@id
+    .
+
+kkotw:word_42_고기
+    a kkot:Word
+    ; kkot:id 42
+    ; kkot:korean "고기"@ko
+    ; kkot:romanization "gogi"
+    ; kkot:bahasaIndonesia "daging"@id
+    ; kkot:english "meat"@en
+    ; kkot:type "noun"
+    ; kkot:category "food_drink"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "육류"@ko ; kkot:romanization "yungnyu" ; kkot:bahasaIndonesia "daging / produk hewani (formal)"@id ; kkot:english "meat / animal products (formal)"@en ]
+    ; kkot:hasAntonym kkotw:word_41_야채
+    ; kkot:hasExample kkote:example_42
+    .
+
+kkote:example_42
+    a kkot:Example
+    ; kkot:sentenceKorean "고기를 좋아해요."@ko
+    ; kkot:sentenceRomanization "gogireul joahaeyo."
+    ; kkot:sentenceIndonesia "Saya suka daging."@id
+    .
+
+kkotw:word_43_맛있다
+    a kkot:Word
+    ; kkot:id 43
+    ; kkot:korean "맛있다"@ko
+    ; kkot:romanization "masitda"
+    ; kkot:bahasaIndonesia "enak / lezat"@id
+    ; kkot:english "delicious"@en
+    ; kkot:type "adjective"
+    ; kkot:category "food_drink"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "맛나다"@ko ; kkot:romanization "mannada" ; kkot:bahasaIndonesia "lezat / nikmat"@id ; kkot:english "tasty"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "맛없다"@ko ; kkot:romanization "maseoptda" ; kkot:bahasaIndonesia "tidak enak"@id ; kkot:english "tasteless / bad-tasting"@en ]
+    ; kkot:hasExample kkote:example_43
+    .
+
+kkote:example_43
+    a kkot:Example
+    ; kkot:sentenceKorean "이 음식이 너무 맛있어요."@ko
+    ; kkot:sentenceRomanization "i eumsigi neomu massisseoyo."
+    ; kkot:sentenceIndonesia "Makanan ini sangat enak."@id
+    .
+
+kkotw:word_44_맵다
+    a kkot:Word
+    ; kkot:id 44
+    ; kkot:korean "맵다"@ko
+    ; kkot:romanization "maepda"
+    ; kkot:bahasaIndonesia "pedas"@id
+    ; kkot:english "spicy / hot"@en
+    ; kkot:type "adjective"
+    ; kkot:category "food_drink"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "칼칼하다"@ko ; kkot:romanization "kalkalada" ; kkot:bahasaIndonesia "pedas dan segar (ringan)"@id ; kkot:english "mildly spicy"@en ]
+    ; kkot:hasAntonym kkotw:word_45_달다
+    ; kkot:hasExample kkote:example_44
+    .
+
+kkote:example_44
+    a kkot:Example
+    ; kkot:sentenceKorean "이 음식은 너무 매워요."@ko
+    ; kkot:sentenceRomanization "i eumsigeun neomu maewoyo."
+    ; kkot:sentenceIndonesia "Makanan ini terlalu pedas."@id
+    .
+
+kkotw:word_45_달다
+    a kkot:Word
+    ; kkot:id 45
+    ; kkot:korean "달다"@ko
+    ; kkot:romanization "dalda"
+    ; kkot:bahasaIndonesia "manis"@id
+    ; kkot:english "sweet"@en
+    ; kkot:type "adjective"
+    ; kkot:category "food_drink"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "달콤하다"@ko ; kkot:romanization "dalkomhada" ; kkot:bahasaIndonesia "manis (lebih ekspresif)"@id ; kkot:english "sweet (more expressive)"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "짜다"@ko ; kkot:romanization "jjada" ; kkot:bahasaIndonesia "asin"@id ; kkot:english "salty"@en ]
+    ; kkot:hasExample kkote:example_45
+    .
+
+kkote:example_45
+    a kkot:Example
+    ; kkot:sentenceKorean "이 케이크가 달아요."@ko
+    ; kkot:sentenceRomanization "i keikeuga darayo."
+    ; kkot:sentenceIndonesia "Kue ini manis."@id
+    .
+
+kkotw:word_46_학교
+    a kkot:Word
+    ; kkot:id 46
+    ; kkot:korean "학교"@ko
+    ; kkot:romanization "hakgyo"
+    ; kkot:bahasaIndonesia "sekolah"@id
+    ; kkot:english "school"@en
+    ; kkot:type "noun"
+    ; kkot:category "place_direction"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "학원"@ko ; kkot:romanization "hagwon" ; kkot:bahasaIndonesia "lembaga bimbingan belajar / kursus"@id ; kkot:english "private academy / tutoring center"@en ]
+    ; kkot:hasExample kkote:example_46
+    .
+
+kkote:example_46
+    a kkot:Example
+    ; kkot:sentenceKorean "학교에 가요."@ko
+    ; kkot:sentenceRomanization "hakgyoe gayo."
+    ; kkot:sentenceIndonesia "Pergi ke sekolah."@id
+    .
+
+kkotw:word_47_집
+    a kkot:Word
+    ; kkot:id 47
+    ; kkot:korean "집"@ko
+    ; kkot:romanization "jip"
+    ; kkot:bahasaIndonesia "rumah"@id
+    ; kkot:english "house / home"@en
+    ; kkot:type "noun"
+    ; kkot:category "place_direction"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "가정"@ko ; kkot:romanization "gajeong" ; kkot:bahasaIndonesia "rumah tangga / keluarga"@id ; kkot:english "home / household"@en ]
+    ; kkot:hasAntonym kkotw:word_46_학교
+    ; kkot:hasExample kkote:example_47
+    .
+
+kkote:example_47
+    a kkot:Example
+    ; kkot:sentenceKorean "집에 가고 싶어요."@ko
+    ; kkot:sentenceRomanization "jibe gago sipeoyo."
+    ; kkot:sentenceIndonesia "Saya ingin pulang ke rumah."@id
+    .
+
+kkotw:word_48_병원
+    a kkot:Word
+    ; kkot:id 48
+    ; kkot:korean "병원"@ko
+    ; kkot:romanization "byeongwon"
+    ; kkot:bahasaIndonesia "rumah sakit"@id
+    ; kkot:english "hospital"@en
+    ; kkot:type "noun"
+    ; kkot:category "place_direction"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "의원"@ko ; kkot:romanization "uiwon" ; kkot:bahasaIndonesia "klinik / puskesmas"@id ; kkot:english "clinic"@en ]
+    ; kkot:hasExample kkote:example_48
+    .
+
+kkote:example_48
+    a kkot:Example
+    ; kkot:sentenceKorean "병원에 가야 해요."@ko
+    ; kkot:sentenceRomanization "byeongwone gaya haeyo."
+    ; kkot:sentenceIndonesia "Harus pergi ke rumah sakit."@id
+    .
+
+kkotw:word_49_식당
+    a kkot:Word
+    ; kkot:id 49
+    ; kkot:korean "식당"@ko
+    ; kkot:romanization "sikdang"
+    ; kkot:bahasaIndonesia "restoran / warung makan"@id
+    ; kkot:english "restaurant"@en
+    ; kkot:type "noun"
+    ; kkot:category "place_direction"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "음식점"@ko ; kkot:romanization "eumsikjeom" ; kkot:bahasaIndonesia "restoran / tempat makan"@id ; kkot:english "restaurant / eatery"@en ]
+    ; kkot:hasExample kkote:example_49
+    .
+
+kkote:example_49
+    a kkot:Example
+    ; kkot:sentenceKorean "이 근처에 식당이 있어요?"@ko
+    ; kkot:sentenceRomanization "i geuncheoe sikdangi isseoyo?"
+    ; kkot:sentenceIndonesia "Ada restoran di dekat sini?"@id
+    .
+
+kkotw:word_50_도서관
+    a kkot:Word
+    ; kkot:id 50
+    ; kkot:korean "도서관"@ko
+    ; kkot:romanization "doseogwan"
+    ; kkot:bahasaIndonesia "perpustakaan"@id
+    ; kkot:english "library"@en
+    ; kkot:type "noun"
+    ; kkot:category "place_direction"
+    ; kkot:hasExample kkote:example_50
+    .
+
+kkote:example_50
+    a kkot:Example
+    ; kkot:sentenceKorean "도서관에서 책 읽어요."@ko
+    ; kkot:sentenceRomanization "doseogwaneseo chaek ilgeoyo."
+    ; kkot:sentenceIndonesia "Membaca buku di perpustakaan."@id
+    .
+
+kkotw:word_51_왼쪽
+    a kkot:Word
+    ; kkot:id 51
+    ; kkot:korean "왼쪽"@ko
+    ; kkot:romanization "oenjjok"
+    ; kkot:bahasaIndonesia "kiri"@id
+    ; kkot:english "left"@en
+    ; kkot:type "noun"
+    ; kkot:category "place_direction"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "좌측"@ko ; kkot:romanization "jwacheuik" ; kkot:bahasaIndonesia "kiri (formal)"@id ; kkot:english "left (formal)"@en ]
+    ; kkot:hasAntonym kkotw:word_52_오른쪽
+    ; kkot:hasExample kkote:example_51
+    .
+
+kkote:example_51
+    a kkot:Example
+    ; kkot:sentenceKorean "왼쪽으로 가세요."@ko
+    ; kkot:sentenceRomanization "oenjjogeuro gaseyo."
+    ; kkot:sentenceIndonesia "Pergi ke arah kiri."@id
+    .
+
+kkotw:word_52_오른쪽
+    a kkot:Word
+    ; kkot:id 52
+    ; kkot:korean "오른쪽"@ko
+    ; kkot:romanization "oreunjjok"
+    ; kkot:bahasaIndonesia "kanan"@id
+    ; kkot:english "right"@en
+    ; kkot:type "noun"
+    ; kkot:category "place_direction"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "우측"@ko ; kkot:romanization "ucheuik" ; kkot:bahasaIndonesia "kanan (formal)"@id ; kkot:english "right (formal)"@en ]
+    ; kkot:hasAntonym kkotw:word_51_왼쪽
+    ; kkot:hasExample kkote:example_52
+    .
+
+kkote:example_52
+    a kkot:Example
+    ; kkot:sentenceKorean "오른쪽으로 도세요."@ko
+    ; kkot:sentenceRomanization "oreunjjogeuro doseyo."
+    ; kkot:sentenceIndonesia "Belok kanan."@id
+    .
+
+kkotw:word_53_앞
+    a kkot:Word
+    ; kkot:id 53
+    ; kkot:korean "앞"@ko
+    ; kkot:romanization "ap"
+    ; kkot:bahasaIndonesia "depan"@id
+    ; kkot:english "front / ahead"@en
+    ; kkot:type "noun"
+    ; kkot:category "place_direction"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "전방"@ko ; kkot:romanization "jeonbang" ; kkot:bahasaIndonesia "bagian depan (militer/formal)"@id ; kkot:english "front (military/formal)"@en ]
+    ; kkot:hasAntonym kkotw:word_54_뒤
+    ; kkot:hasExample kkote:example_53
+    .
+
+kkote:example_53
+    a kkot:Example
+    ; kkot:sentenceKorean "학교 앞에서 만나요."@ko
+    ; kkot:sentenceRomanization "hakgyo apeseo mannayo."
+    ; kkot:sentenceIndonesia "Bertemu di depan sekolah."@id
+    .
+
+kkotw:word_54_뒤
+    a kkot:Word
+    ; kkot:id 54
+    ; kkot:korean "뒤"@ko
+    ; kkot:romanization "dwi"
+    ; kkot:bahasaIndonesia "belakang"@id
+    ; kkot:english "back / behind"@en
+    ; kkot:type "noun"
+    ; kkot:category "place_direction"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "후방"@ko ; kkot:romanization "hubang" ; kkot:bahasaIndonesia "bagian belakang (formal)"@id ; kkot:english "rear / back (formal)"@en ]
+    ; kkot:hasAntonym kkotw:word_53_앞
+    ; kkot:hasExample kkote:example_54
+    .
+
+kkote:example_54
+    a kkot:Example
+    ; kkot:sentenceKorean "뒤에 사람이 있어요."@ko
+    ; kkot:sentenceRomanization "dwie sarami isseoyo."
+    ; kkot:sentenceIndonesia "Ada orang di belakang."@id
+    .
+
+kkotw:word_55_멀다
+    a kkot:Word
+    ; kkot:id 55
+    ; kkot:korean "멀다"@ko
+    ; kkot:romanization "meolda"
+    ; kkot:bahasaIndonesia "jauh"@id
+    ; kkot:english "far"@en
+    ; kkot:type "adjective"
+    ; kkot:category "place_direction"
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "가깝다"@ko ; kkot:romanization "gakkapda" ; kkot:bahasaIndonesia "dekat"@id ; kkot:english "close / near"@en ]
+    ; kkot:hasExample kkote:example_55
+    .
+
+kkote:example_55
+    a kkot:Example
+    ; kkot:sentenceKorean "집이 학교에서 멀어요."@ko
+    ; kkot:sentenceRomanization "jibi hakgyoeseo meoreoyo."
+    ; kkot:sentenceIndonesia "Rumah jauh dari sekolah."@id
+    .
+
+kkotw:word_56_가다
+    a kkot:Word
+    ; kkot:id 56
+    ; kkot:korean "가다"@ko
+    ; kkot:romanization "gada"
+    ; kkot:bahasaIndonesia "pergi"@id
+    ; kkot:english "to go"@en
+    ; kkot:type "verb"
+    ; kkot:category "daily_activity"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "이동하다"@ko ; kkot:romanization "idonghada" ; kkot:bahasaIndonesia "berpindah / bergerak"@id ; kkot:english "to move"@en ]
+    ; kkot:hasAntonym kkotw:word_57_오다
+    ; kkot:hasExample kkote:example_56
+    .
+
+kkote:example_56
+    a kkot:Example
+    ; kkot:sentenceKorean "어디 가요?"@ko
+    ; kkot:sentenceRomanization "eodi gayo?"
+    ; kkot:sentenceIndonesia "Mau ke mana?"@id
+    .
+
+kkotw:word_57_오다
+    a kkot:Word
+    ; kkot:id 57
+    ; kkot:korean "오다"@ko
+    ; kkot:romanization "oda"
+    ; kkot:bahasaIndonesia "datang"@id
+    ; kkot:english "to come"@en
+    ; kkot:type "verb"
+    ; kkot:category "daily_activity"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "도착하다"@ko ; kkot:romanization "dochakada" ; kkot:bahasaIndonesia "tiba / sampai"@id ; kkot:english "to arrive"@en ]
+    ; kkot:hasAntonym kkotw:word_56_가다
+    ; kkot:hasExample kkote:example_57
+    .
+
+kkote:example_57
+    a kkot:Example
+    ; kkot:sentenceKorean "언제 와요?"@ko
+    ; kkot:sentenceRomanization "eonje wayo?"
+    ; kkot:sentenceIndonesia "Kapan datang?"@id
+    .
+
+kkotw:word_58_자다
+    a kkot:Word
+    ; kkot:id 58
+    ; kkot:korean "자다"@ko
+    ; kkot:romanization "jada"
+    ; kkot:bahasaIndonesia "tidur"@id
+    ; kkot:english "to sleep"@en
+    ; kkot:type "verb"
+    ; kkot:category "daily_activity"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "잠들다"@ko ; kkot:romanization "jamdeulda" ; kkot:bahasaIndonesia "tertidur / jatuh tertidur"@id ; kkot:english "to fall asleep"@en ]
+    ; kkot:hasAntonym kkotw:word_59_일어나다
+    ; kkot:hasExample kkote:example_58
+    .
+
+kkote:example_58
+    a kkot:Example
+    ; kkot:sentenceKorean "일찍 자야 해요."@ko
+    ; kkot:sentenceRomanization "iljjik jaya haeyo."
+    ; kkot:sentenceIndonesia "Harus tidur lebih awal."@id
+    .
+
+kkotw:word_59_일어나다
+    a kkot:Word
+    ; kkot:id 59
+    ; kkot:korean "일어나다"@ko
+    ; kkot:romanization "ireonada"
+    ; kkot:bahasaIndonesia "bangun tidur"@id
+    ; kkot:english "to wake up"@en
+    ; kkot:type "verb"
+    ; kkot:category "daily_activity"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "기상하다"@ko ; kkot:romanization "gisanghada" ; kkot:bahasaIndonesia "bangun (formal)"@id ; kkot:english "to get up (formal)"@en ]
+    ; kkot:hasAntonym kkotw:word_58_자다
+    ; kkot:hasExample kkote:example_59
+    .
+
+kkote:example_59
+    a kkot:Example
+    ; kkot:sentenceKorean "몇 시에 일어나요?"@ko
+    ; kkot:sentenceRomanization "myeot sie ireonayo?"
+    ; kkot:sentenceIndonesia "Jam berapa bangun?"@id
+    .
+
+kkotw:word_60_공부하다
+    a kkot:Word
+    ; kkot:id 60
+    ; kkot:korean "공부하다"@ko
+    ; kkot:romanization "gongbuhada"
+    ; kkot:bahasaIndonesia "belajar"@id
+    ; kkot:english "to study"@en
+    ; kkot:type "verb"
+    ; kkot:category "daily_activity"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "배우다"@ko ; kkot:romanization "baeuda" ; kkot:bahasaIndonesia "mempelajari / belajar"@id ; kkot:english "to learn"@en ]
+    ; kkot:hasExample kkote:example_60
+    .
+
+kkote:example_60
+    a kkot:Example
+    ; kkot:sentenceKorean "한국어를 공부해요."@ko
+    ; kkot:sentenceRomanization "hangugoreul gongbuhaeyo."
+    ; kkot:sentenceIndonesia "Saya belajar bahasa Korea."@id
+    .
+
+kkotw:word_61_먹다
+    a kkot:Word
+    ; kkot:id 61
+    ; kkot:korean "먹다"@ko
+    ; kkot:romanization "meokda"
+    ; kkot:bahasaIndonesia "makan"@id
+    ; kkot:english "to eat"@en
+    ; kkot:type "verb"
+    ; kkot:category "daily_activity"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "드시다"@ko ; kkot:romanization "deusida" ; kkot:bahasaIndonesia "makan (honorific)"@id ; kkot:english "to eat (honorific)"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "굶다"@ko ; kkot:romanization "gumda" ; kkot:bahasaIndonesia "berpuasa / tidak makan"@id ; kkot:english "to fast / to starve"@en ]
+    ; kkot:hasExample kkote:example_61
+    .
+
+kkote:example_61
+    a kkot:Example
+    ; kkot:sentenceKorean "뭐 먹을까요?"@ko
+    ; kkot:sentenceRomanization "mwo meogeulkkayo?"
+    ; kkot:sentenceIndonesia "Mau makan apa?"@id
+    .
+
+kkotw:word_62_마시다
+    a kkot:Word
+    ; kkot:id 62
+    ; kkot:korean "마시다"@ko
+    ; kkot:romanization "masida"
+    ; kkot:bahasaIndonesia "minum"@id
+    ; kkot:english "to drink"@en
+    ; kkot:type "verb"
+    ; kkot:category "daily_activity"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "드시다"@ko ; kkot:romanization "deusida" ; kkot:bahasaIndonesia "minum (honorific)"@id ; kkot:english "to drink (honorific)"@en ]
+    ; kkot:hasExample kkote:example_62
+    .
+
+kkote:example_62
+    a kkot:Example
+    ; kkot:sentenceKorean "물을 많이 마셔야 해요."@ko
+    ; kkot:sentenceRomanization "mureul mani masyeoya haeyo."
+    ; kkot:sentenceIndonesia "Harus banyak minum air."@id
+    .
+
+kkotw:word_63_읽다
+    a kkot:Word
+    ; kkot:id 63
+    ; kkot:korean "읽다"@ko
+    ; kkot:romanization "ikda"
+    ; kkot:bahasaIndonesia "membaca"@id
+    ; kkot:english "to read"@en
+    ; kkot:type "verb"
+    ; kkot:category "daily_activity"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "독서하다"@ko ; kkot:romanization "doksuhada" ; kkot:bahasaIndonesia "membaca (formal)"@id ; kkot:english "to read (formal)"@en ]
+    ; kkot:hasAntonym kkotw:word_64_쓰다
+    ; kkot:hasExample kkote:example_63
+    .
+
+kkote:example_63
+    a kkot:Example
+    ; kkot:sentenceKorean "책을 읽어요."@ko
+    ; kkot:sentenceRomanization "chaekeul ilgeoyo."
+    ; kkot:sentenceIndonesia "Membaca buku."@id
+    .
+
+kkotw:word_64_쓰다
+    a kkot:Word
+    ; kkot:id 64
+    ; kkot:korean "쓰다"@ko
+    ; kkot:romanization "sseuda"
+    ; kkot:bahasaIndonesia "menulis"@id
+    ; kkot:english "to write"@en
+    ; kkot:type "verb"
+    ; kkot:category "daily_activity"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "적다"@ko ; kkot:romanization "jeokda" ; kkot:bahasaIndonesia "mencatat / menulis (singkat)"@id ; kkot:english "to jot down / note"@en ]
+    ; kkot:hasAntonym kkotw:word_63_읽다
+    ; kkot:hasExample kkote:example_64
+    .
+
+kkote:example_64
+    a kkot:Example
+    ; kkot:sentenceKorean "일기를 써요."@ko
+    ; kkot:sentenceRomanization "ilgireul sseoyo."
+    ; kkot:sentenceIndonesia "Menulis buku harian."@id
+    .
+
+kkotw:word_65_말하다
+    a kkot:Word
+    ; kkot:id 65
+    ; kkot:korean "말하다"@ko
+    ; kkot:romanization "malhada"
+    ; kkot:bahasaIndonesia "berbicara / berkata"@id
+    ; kkot:english "to speak / to say"@en
+    ; kkot:type "verb"
+    ; kkot:category "daily_activity"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "이야기하다"@ko ; kkot:romanization "iyagihada" ; kkot:bahasaIndonesia "bercerita / ngobrol"@id ; kkot:english "to talk / to chat"@en ]
+    ; kkot:hasAntonym kkotw:word_66_듣다
+    ; kkot:hasExample kkote:example_65
+    .
+
+kkote:example_65
+    a kkot:Example
+    ; kkot:sentenceKorean "한국어로 말해요."@ko
+    ; kkot:sentenceRomanization "hangugoro malhaeyo."
+    ; kkot:sentenceIndonesia "Berbicara dalam bahasa Korea."@id
+    .
+
+kkotw:word_66_듣다
+    a kkot:Word
+    ; kkot:id 66
+    ; kkot:korean "듣다"@ko
+    ; kkot:romanization "deutda"
+    ; kkot:bahasaIndonesia "mendengar / mendengarkan"@id
+    ; kkot:english "to listen / to hear"@en
+    ; kkot:type "verb"
+    ; kkot:category "daily_activity"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "경청하다"@ko ; kkot:romanization "gyeongcheonghada" ; kkot:bahasaIndonesia "mendengarkan dengan seksama (formal)"@id ; kkot:english "to listen attentively (formal)"@en ]
+    ; kkot:hasAntonym kkotw:word_65_말하다
+    ; kkot:hasExample kkote:example_66
+    .
+
+kkote:example_66
+    a kkot:Example
+    ; kkot:sentenceKorean "음악을 들어요."@ko
+    ; kkot:sentenceRomanization "eumageul deureoyo."
+    ; kkot:sentenceIndonesia "Mendengarkan musik."@id
+    .
+
+kkotw:word_67_만나다
+    a kkot:Word
+    ; kkot:id 67
+    ; kkot:korean "만나다"@ko
+    ; kkot:romanization "mannada"
+    ; kkot:bahasaIndonesia "bertemu"@id
+    ; kkot:english "to meet"@en
+    ; kkot:type "verb"
+    ; kkot:category "daily_activity"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "만남을 갖다"@ko ; kkot:romanization "mannaimeul gatda" ; kkot:bahasaIndonesia "mengadakan pertemuan"@id ; kkot:english "to have a meeting"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "헤어지다"@ko ; kkot:romanization "heeojida" ; kkot:bahasaIndonesia "berpisah"@id ; kkot:english "to part / to separate"@en ]
+    ; kkot:hasExample kkote:example_67
+    .
+
+kkote:example_67
+    a kkot:Example
+    ; kkot:sentenceKorean "친구를 만나요."@ko
+    ; kkot:sentenceRomanization "chingureul mannayo."
+    ; kkot:sentenceIndonesia "Bertemu teman."@id
+    .
+
+kkotw:word_68_사다
+    a kkot:Word
+    ; kkot:id 68
+    ; kkot:korean "사다"@ko
+    ; kkot:romanization "sada"
+    ; kkot:bahasaIndonesia "membeli"@id
+    ; kkot:english "to buy"@en
+    ; kkot:type "verb"
+    ; kkot:category "daily_activity"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "구매하다"@ko ; kkot:romanization "gumaehada" ; kkot:bahasaIndonesia "membeli (formal)"@id ; kkot:english "to purchase (formal)"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "팔다"@ko ; kkot:romanization "palda" ; kkot:bahasaIndonesia "menjual"@id ; kkot:english "to sell"@en ]
+    ; kkot:hasExample kkote:example_68
+    .
+
+kkote:example_68
+    a kkot:Example
+    ; kkot:sentenceKorean "옷을 사러 가요."@ko
+    ; kkot:sentenceRomanization "oseul sareo gayo."
+    ; kkot:sentenceIndonesia "Pergi membeli baju."@id
+    .
+
+kkotw:word_69_운동하다
+    a kkot:Word
+    ; kkot:id 69
+    ; kkot:korean "운동하다"@ko
+    ; kkot:romanization "undonghada"
+    ; kkot:bahasaIndonesia "berolahraga"@id
+    ; kkot:english "to exercise"@en
+    ; kkot:type "verb"
+    ; kkot:category "daily_activity"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "체육하다"@ko ; kkot:romanization "cheyukhada" ; kkot:bahasaIndonesia "berolahraga (formal/pendidikan)"@id ; kkot:english "to do physical education"@en ]
+    ; kkot:hasExample kkote:example_69
+    .
+
+kkote:example_69
+    a kkot:Example
+    ; kkot:sentenceKorean "매일 운동해요."@ko
+    ; kkot:sentenceRomanization "maeil undonghaeyo."
+    ; kkot:sentenceIndonesia "Olahraga setiap hari."@id
+    .
+
+kkotw:word_70_요리하다
+    a kkot:Word
+    ; kkot:id 70
+    ; kkot:korean "요리하다"@ko
+    ; kkot:romanization "yorihada"
+    ; kkot:bahasaIndonesia "memasak"@id
+    ; kkot:english "to cook"@en
+    ; kkot:type "verb"
+    ; kkot:category "daily_activity"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "음식을 만들다"@ko ; kkot:romanization "eumsigeur mandeulda" ; kkot:bahasaIndonesia "membuat makanan"@id ; kkot:english "to make food"@en ]
+    ; kkot:hasExample kkote:example_70
+    .
+
+kkote:example_70
+    a kkot:Example
+    ; kkot:sentenceKorean "저녁을 요리해요."@ko
+    ; kkot:sentenceRomanization "jeonyeogeul yorihaeyo."
+    ; kkot:sentenceIndonesia "Memasak makan malam."@id
+    .
+
+kkotw:word_71_행복하다
+    a kkot:Word
+    ; kkot:id 71
+    ; kkot:korean "행복하다"@ko
+    ; kkot:romanization "haengbokhada"
+    ; kkot:bahasaIndonesia "bahagia"@id
+    ; kkot:english "to be happy"@en
+    ; kkot:type "adjective"
+    ; kkot:category "emotion_trait"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "기쁘다"@ko ; kkot:romanization "gippeuda" ; kkot:bahasaIndonesia "gembira / senang"@id ; kkot:english "to be glad / joyful"@en ]
+    ; kkot:hasAntonym kkotw:word_72_슬프다
+    ; kkot:hasExample kkote:example_71
+    .
+
+kkote:example_71
+    a kkot:Example
+    ; kkot:sentenceKorean "요즘 행복해요."@ko
+    ; kkot:sentenceRomanization "yojeum haengbokhaeyo."
+    ; kkot:sentenceIndonesia "Belakangan ini saya bahagia."@id
+    .
+
+kkotw:word_72_슬프다
+    a kkot:Word
+    ; kkot:id 72
+    ; kkot:korean "슬프다"@ko
+    ; kkot:romanization "seulpeuda"
+    ; kkot:bahasaIndonesia "sedih"@id
+    ; kkot:english "to be sad"@en
+    ; kkot:type "adjective"
+    ; kkot:category "emotion_trait"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "서럽다"@ko ; kkot:romanization "seoropda" ; kkot:bahasaIndonesia "sedih / pilu (ekspresi mendalam)"@id ; kkot:english "to feel sorrowful"@en ]
+    ; kkot:hasAntonym kkotw:word_71_행복하다
+    ; kkot:hasExample kkote:example_72
+    .
+
+kkote:example_72
+    a kkot:Example
+    ; kkot:sentenceKorean "왜 슬퍼요?"@ko
+    ; kkot:sentenceRomanization "wae seulpeoyo?"
+    ; kkot:sentenceIndonesia "Kenapa sedih?"@id
+    .
+
+kkotw:word_73_무섭다
+    a kkot:Word
+    ; kkot:id 73
+    ; kkot:korean "무섭다"@ko
+    ; kkot:romanization "museopda"
+    ; kkot:bahasaIndonesia "takut / menakutkan"@id
+    ; kkot:english "to be scared / scary"@en
+    ; kkot:type "adjective"
+    ; kkot:category "emotion_trait"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "두렵다"@ko ; kkot:romanization "duryeopda" ; kkot:bahasaIndonesia "gentar / takut (lebih mendalam)"@id ; kkot:english "to be fearful"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "용감하다"@ko ; kkot:romanization "yonggamhada" ; kkot:bahasaIndonesia "berani"@id ; kkot:english "to be brave"@en ]
+    ; kkot:hasExample kkote:example_73
+    .
+
+kkote:example_73
+    a kkot:Example
+    ; kkot:sentenceKorean "귀신이 무서워요."@ko
+    ; kkot:sentenceRomanization "gwisinii museowoyo."
+    ; kkot:sentenceIndonesia "Saya takut hantu."@id
+    .
+
+kkotw:word_74_피곤하다
+    a kkot:Word
+    ; kkot:id 74
+    ; kkot:korean "피곤하다"@ko
+    ; kkot:romanization "pigonhada"
+    ; kkot:bahasaIndonesia "lelah / capek"@id
+    ; kkot:english "to be tired"@en
+    ; kkot:type "adjective"
+    ; kkot:category "emotion_trait"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "지치다"@ko ; kkot:romanization "jichida" ; kkot:bahasaIndonesia "kelelahan / keletihan"@id ; kkot:english "to be exhausted"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "활기차다"@ko ; kkot:romanization "hwalgichada" ; kkot:bahasaIndonesia "bersemangat / energik"@id ; kkot:english "to be energetic"@en ]
+    ; kkot:hasExample kkote:example_74
+    .
+
+kkote:example_74
+    a kkot:Example
+    ; kkot:sentenceKorean "오늘 너무 피곤해요."@ko
+    ; kkot:sentenceRomanization "oneul neomu pigonhaeyo."
+    ; kkot:sentenceIndonesia "Hari ini sangat lelah."@id
+    .
+
+kkotw:word_75_재미있다
+    a kkot:Word
+    ; kkot:id 75
+    ; kkot:korean "재미있다"@ko
+    ; kkot:romanization "jaemiitda"
+    ; kkot:bahasaIndonesia "seru / menyenangkan"@id
+    ; kkot:english "to be fun / interesting"@en
+    ; kkot:type "adjective"
+    ; kkot:category "emotion_trait"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "흥미롭다"@ko ; kkot:romanization "heungmiropda" ; kkot:bahasaIndonesia "menarik / mengasyikkan"@id ; kkot:english "to be interesting / absorbing"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "재미없다"@ko ; kkot:romanization "jaemieopda" ; kkot:bahasaIndonesia "membosankan"@id ; kkot:english "to be boring"@en ]
+    ; kkot:hasExample kkote:example_75
+    .
+
+kkote:example_75
+    a kkot:Example
+    ; kkot:sentenceKorean "이 영화가 재미있어요."@ko
+    ; kkot:sentenceRomanization "i yeonghwaga jaemiisseoyo."
+    ; kkot:sentenceIndonesia "Film ini seru."@id
+    .
+
+kkotw:word_76_아프다
+    a kkot:Word
+    ; kkot:id 76
+    ; kkot:korean "아프다"@ko
+    ; kkot:romanization "apeuda"
+    ; kkot:bahasaIndonesia "sakit"@id
+    ; kkot:english "to be sick / in pain"@en
+    ; kkot:type "adjective"
+    ; kkot:category "emotion_trait"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "쑤시다"@ko ; kkot:romanization "ssusida" ; kkot:bahasaIndonesia "nyeri / pegal"@id ; kkot:english "to ache / to throb"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "건강하다"@ko ; kkot:romanization "geonganghada" ; kkot:bahasaIndonesia "sehat"@id ; kkot:english "to be healthy"@en ]
+    ; kkot:hasExample kkote:example_76
+    .
+
+kkote:example_76
+    a kkot:Example
+    ; kkot:sentenceKorean "머리가 아파요."@ko
+    ; kkot:sentenceRomanization "meoriga apayo."
+    ; kkot:sentenceIndonesia "Kepala saya sakit."@id
+    .
+
+kkotw:word_77_예쁘다
+    a kkot:Word
+    ; kkot:id 77
+    ; kkot:korean "예쁘다"@ko
+    ; kkot:romanization "yeppeuda"
+    ; kkot:bahasaIndonesia "cantik / indah"@id
+    ; kkot:english "to be pretty / beautiful"@en
+    ; kkot:type "adjective"
+    ; kkot:category "emotion_trait"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "아름답다"@ko ; kkot:romanization "areumdapda" ; kkot:bahasaIndonesia "indah / cantik (lebih puitis)"@id ; kkot:english "to be beautiful (more poetic)"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "못생겼다"@ko ; kkot:romanization "motsengyeotda" ; kkot:bahasaIndonesia "jelek / tidak menarik"@id ; kkot:english "to be ugly"@en ]
+    ; kkot:hasExample kkote:example_77
+    .
+
+kkote:example_77
+    a kkot:Example
+    ; kkot:sentenceKorean "꽃이 예뻐요."@ko
+    ; kkot:sentenceRomanization "kkochi yeppeoyo."
+    ; kkot:sentenceIndonesia "Bunganya cantik."@id
+    .
+
+kkotw:word_78_귀엽다
+    a kkot:Word
+    ; kkot:id 78
+    ; kkot:korean "귀엽다"@ko
+    ; kkot:romanization "gwiyeopda"
+    ; kkot:bahasaIndonesia "lucu / imut"@id
+    ; kkot:english "to be cute"@en
+    ; kkot:type "adjective"
+    ; kkot:category "emotion_trait"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "앙증맞다"@ko ; kkot:romanization "angjjeunmajda" ; kkot:bahasaIndonesia "imut / menggemaskan"@id ; kkot:english "to be adorable"@en ]
+    ; kkot:hasExample kkote:example_78
+    .
+
+kkote:example_78
+    a kkot:Example
+    ; kkot:sentenceKorean "고양이가 귀여워요."@ko
+    ; kkot:sentenceRomanization "goyangi gwiyeowoyo."
+    ; kkot:sentenceIndonesia "Kucingnya imut."@id
+    .
+
+kkotw:word_79_똑똑하다
+    a kkot:Word
+    ; kkot:id 79
+    ; kkot:korean "똑똑하다"@ko
+    ; kkot:romanization "ttokttokada"
+    ; kkot:bahasaIndonesia "pintar / cerdas"@id
+    ; kkot:english "to be smart"@en
+    ; kkot:type "adjective"
+    ; kkot:category "emotion_trait"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "영리하다"@ko ; kkot:romanization "yeongnirhada" ; kkot:bahasaIndonesia "cerdik / pandai"@id ; kkot:english "to be clever"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "멍청하다"@ko ; kkot:romanization "meongcheonghada" ; kkot:bahasaIndonesia "bodoh"@id ; kkot:english "to be stupid"@en ]
+    ; kkot:hasExample kkote:example_79
+    .
+
+kkote:example_79
+    a kkot:Example
+    ; kkot:sentenceKorean "그 학생은 똑똑해요."@ko
+    ; kkot:sentenceRomanization "geu haksaengeun ttokttokhaeyo."
+    ; kkot:sentenceIndonesia "Murid itu pintar."@id
+    .
+
+kkotw:word_80_친절하다
+    a kkot:Word
+    ; kkot:id 80
+    ; kkot:korean "친절하다"@ko
+    ; kkot:romanization "chinjeolhada"
+    ; kkot:bahasaIndonesia "ramah / baik hati"@id
+    ; kkot:english "to be kind"@en
+    ; kkot:type "adjective"
+    ; kkot:category "emotion_trait"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "다정하다"@ko ; kkot:romanization "dajeonghada" ; kkot:bahasaIndonesia "penuh kasih sayang / hangat"@id ; kkot:english "to be affectionate"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "불친절하다"@ko ; kkot:romanization "bulchinjeolhada" ; kkot:bahasaIndonesia "tidak ramah"@id ; kkot:english "to be unkind"@en ]
+    ; kkot:hasExample kkote:example_80
+    .
+
+kkote:example_80
+    a kkot:Example
+    ; kkot:sentenceKorean "한국 사람들은 친절해요."@ko
+    ; kkot:sentenceRomanization "hanguk saramdeureun chinjeolhaeyo."
+    ; kkot:sentenceIndonesia "Orang Korea itu ramah."@id
+    .
+
+kkotw:word_81_바쁘다
+    a kkot:Word
+    ; kkot:id 81
+    ; kkot:korean "바쁘다"@ko
+    ; kkot:romanization "bappeuda"
+    ; kkot:bahasaIndonesia "sibuk"@id
+    ; kkot:english "to be busy"@en
+    ; kkot:type "adjective"
+    ; kkot:category "emotion_trait"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "분주하다"@ko ; kkot:romanization "bunjuhada" ; kkot:bahasaIndonesia "sibuk / aktif bergerak (formal)"@id ; kkot:english "to be bustling / occupied"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "한가하다"@ko ; kkot:romanization "hangahada" ; kkot:bahasaIndonesia "santai / tidak sibuk"@id ; kkot:english "to be free / leisurely"@en ]
+    ; kkot:hasExample kkote:example_81
+    .
+
+kkote:example_81
+    a kkot:Example
+    ; kkot:sentenceKorean "요즘 너무 바빠요."@ko
+    ; kkot:sentenceRomanization "yojeum neomu bappayo."
+    ; kkot:sentenceIndonesia "Belakangan ini sangat sibuk."@id
+    .
+
+kkotw:word_82_어렵다
+    a kkot:Word
+    ; kkot:id 82
+    ; kkot:korean "어렵다"@ko
+    ; kkot:romanization "eoryeopda"
+    ; kkot:bahasaIndonesia "sulit / susah"@id
+    ; kkot:english "to be difficult"@en
+    ; kkot:type "adjective"
+    ; kkot:category "emotion_trait"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "힘들다"@ko ; kkot:romanization "himdeulda" ; kkot:bahasaIndonesia "berat / sulit (lebih ekpresif)"@id ; kkot:english "to be hard / tough"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "쉽다"@ko ; kkot:romanization "swipda" ; kkot:bahasaIndonesia "mudah"@id ; kkot:english "to be easy"@en ]
+    ; kkot:hasExample kkote:example_82
+    .
+
+kkote:example_82
+    a kkot:Example
+    ; kkot:sentenceKorean "한국어가 어려워요."@ko
+    ; kkot:sentenceRomanization "hangugoga eoryeowoyo."
+    ; kkot:sentenceIndonesia "Bahasa Korea itu sulit."@id
+    .
+
+kkotw:word_83_비싸다
+    a kkot:Word
+    ; kkot:id 83
+    ; kkot:korean "비싸다"@ko
+    ; kkot:romanization "bissada"
+    ; kkot:bahasaIndonesia "mahal"@id
+    ; kkot:english "to be expensive"@en
+    ; kkot:type "adjective"
+    ; kkot:category "emotion_trait"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "고가이다"@ko ; kkot:romanization "gogaida" ; kkot:bahasaIndonesia "berharga tinggi (formal)"@id ; kkot:english "to be high-priced (formal)"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "싸다"@ko ; kkot:romanization "ssada" ; kkot:bahasaIndonesia "murah"@id ; kkot:english "to be cheap"@en ]
+    ; kkot:hasExample kkote:example_83
+    .
+
+kkote:example_83
+    a kkot:Example
+    ; kkot:sentenceKorean "이 옷이 너무 비싸요."@ko
+    ; kkot:sentenceRomanization "i osi neomu bissayo."
+    ; kkot:sentenceIndonesia "Baju ini terlalu mahal."@id
+    .
+
+kkotw:word_84_크다
+    a kkot:Word
+    ; kkot:id 84
+    ; kkot:korean "크다"@ko
+    ; kkot:romanization "keuda"
+    ; kkot:bahasaIndonesia "besar / tinggi"@id
+    ; kkot:english "to be big / tall"@en
+    ; kkot:type "adjective"
+    ; kkot:category "emotion_trait"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "거대하다"@ko ; kkot:romanization "geodaehada" ; kkot:bahasaIndonesia "sangat besar / raksasa"@id ; kkot:english "to be gigantic / huge"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "작다"@ko ; kkot:romanization "jakda" ; kkot:bahasaIndonesia "kecil"@id ; kkot:english "to be small"@en ]
+    ; kkot:hasExample kkote:example_84
+    .
+
+kkote:example_84
+    a kkot:Example
+    ; kkot:sentenceKorean "키가 커요."@ko
+    ; kkot:sentenceRomanization "kiga keoyo."
+    ; kkot:sentenceIndonesia "Badannya tinggi."@id
+    .
+
+kkotw:word_85_사랑하다
+    a kkot:Word
+    ; kkot:id 85
+    ; kkot:korean "사랑하다"@ko
+    ; kkot:romanization "saranghada"
+    ; kkot:bahasaIndonesia "mencintai"@id
+    ; kkot:english "to love"@en
+    ; kkot:type "verb"
+    ; kkot:category "emotion_trait"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "좋아하다"@ko ; kkot:romanization "joahada" ; kkot:bahasaIndonesia "menyukai / suka"@id ; kkot:english "to like"@en ]
+    ; kkot:hasAntonym [ a kkot:Word ; kkot:korean "미워하다"@ko ; kkot:romanization "miweohada" ; kkot:bahasaIndonesia "membenci"@id ; kkot:english "to hate"@en ]
+    ; kkot:hasExample kkote:example_85
+    .
+
+kkote:example_85
+    a kkot:Example
+    ; kkot:sentenceKorean "당신을 사랑해요."@ko
+    ; kkot:sentenceRomanization "dangsineul saranghaeyo."
+    ; kkot:sentenceIndonesia "Saya mencintaimu."@id
+    .
+
+kkotw:word_86_책
+    a kkot:Word
+    ; kkot:id 86
+    ; kkot:korean "책"@ko
+    ; kkot:romanization "chaek"
+    ; kkot:bahasaIndonesia "buku"@id
+    ; kkot:english "book"@en
+    ; kkot:type "noun"
+    ; kkot:category "daily_object"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "도서"@ko ; kkot:romanization "doseo" ; kkot:bahasaIndonesia "buku / karya tulis (formal)"@id ; kkot:english "book / publication (formal)"@en ]
+    ; kkot:hasExample kkote:example_86
+    .
+
+kkote:example_86
+    a kkot:Example
+    ; kkot:sentenceKorean "책을 읽어요."@ko
+    ; kkot:sentenceRomanization "chaekeul ilgeoyo."
+    ; kkot:sentenceIndonesia "Membaca buku."@id
+    .
+
+kkotw:word_87_가방
+    a kkot:Word
+    ; kkot:id 87
+    ; kkot:korean "가방"@ko
+    ; kkot:romanization "gabang"
+    ; kkot:bahasaIndonesia "tas"@id
+    ; kkot:english "bag"@en
+    ; kkot:type "noun"
+    ; kkot:category "daily_object"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "백"@ko ; kkot:romanization "baek" ; kkot:bahasaIndonesia "tas / kantong (serapan)"@id ; kkot:english "bag (loanword)"@en ]
+    ; kkot:hasExample kkote:example_87
+    .
+
+kkote:example_87
+    a kkot:Example
+    ; kkot:sentenceKorean "가방이 무거워요."@ko
+    ; kkot:sentenceRomanization "gabangi mugeowoyo."
+    ; kkot:sentenceIndonesia "Tasnya berat."@id
+    .
+
+kkotw:word_88_옷
+    a kkot:Word
+    ; kkot:id 88
+    ; kkot:korean "옷"@ko
+    ; kkot:romanization "ot"
+    ; kkot:bahasaIndonesia "pakaian / baju"@id
+    ; kkot:english "clothes"@en
+    ; kkot:type "noun"
+    ; kkot:category "daily_object"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "의류"@ko ; kkot:romanization "uirnyu" ; kkot:bahasaIndonesia "pakaian (formal)"@id ; kkot:english "clothing (formal)"@en ]
+    ; kkot:hasExample kkote:example_88
+    .
+
+kkote:example_88
+    a kkot:Example
+    ; kkot:sentenceKorean "새 옷을 샀어요."@ko
+    ; kkot:sentenceRomanization "sae oseul sasseoyo."
+    ; kkot:sentenceIndonesia "Membeli baju baru."@id
+    .
+
+kkotw:word_89_신발
+    a kkot:Word
+    ; kkot:id 89
+    ; kkot:korean "신발"@ko
+    ; kkot:romanization "sinbal"
+    ; kkot:bahasaIndonesia "sepatu"@id
+    ; kkot:english "shoes"@en
+    ; kkot:type "noun"
+    ; kkot:category "daily_object"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "구두"@ko ; kkot:romanization "gudu" ; kkot:bahasaIndonesia "sepatu formal / kulit"@id ; kkot:english "formal shoes / leather shoes"@en ]
+    ; kkot:hasExample kkote:example_89
+    .
+
+kkote:example_89
+    a kkot:Example
+    ; kkot:sentenceKorean "신발을 벗어요."@ko
+    ; kkot:sentenceRomanization "sinbareul beoseoyo."
+    ; kkot:sentenceIndonesia "Melepas sepatu."@id
+    .
+
+kkotw:word_90_핸드폰
+    a kkot:Word
+    ; kkot:id 90
+    ; kkot:korean "핸드폰"@ko
+    ; kkot:romanization "haendeupon"
+    ; kkot:bahasaIndonesia "handphone / ponsel"@id
+    ; kkot:english "mobile phone"@en
+    ; kkot:type "noun"
+    ; kkot:category "daily_object"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "휴대폰"@ko ; kkot:romanization "hyudaepon" ; kkot:bahasaIndonesia "ponsel (lebih formal)"@id ; kkot:english "mobile phone (more formal)"@en ]
+    ; kkot:hasExample kkote:example_90
+    .
+
+kkote:example_90
+    a kkot:Example
+    ; kkot:sentenceKorean "핸드폰을 충전해요."@ko
+    ; kkot:sentenceRomanization "haendeuphoneul chungjeonhaeyo."
+    ; kkot:sentenceIndonesia "Mengisi daya handphone."@id
+    .
+
+kkotw:word_91_시계
+    a kkot:Word
+    ; kkot:id 91
+    ; kkot:korean "시계"@ko
+    ; kkot:romanization "sigye"
+    ; kkot:bahasaIndonesia "jam / arloji"@id
+    ; kkot:english "clock / watch"@en
+    ; kkot:type "noun"
+    ; kkot:category "daily_object"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "손목시계"@ko ; kkot:romanization "sonmoksigye" ; kkot:bahasaIndonesia "jam tangan"@id ; kkot:english "wristwatch"@en ]
+    ; kkot:hasExample kkote:example_91
+    .
+
+kkote:example_91
+    a kkot:Example
+    ; kkot:sentenceKorean "시계를 봐요."@ko
+    ; kkot:sentenceRomanization "sigyereul bwayo."
+    ; kkot:sentenceIndonesia "Melihat jam."@id
+    .
+
+kkotw:word_92_우산
+    a kkot:Word
+    ; kkot:id 92
+    ; kkot:korean "우산"@ko
+    ; kkot:romanization "usan"
+    ; kkot:bahasaIndonesia "payung"@id
+    ; kkot:english "umbrella"@en
+    ; kkot:type "noun"
+    ; kkot:category "daily_object"
+    ; kkot:hasExample kkote:example_92
+    .
+
+kkote:example_92
+    a kkot:Example
+    ; kkot:sentenceKorean "비 와서 우산 가져와요."@ko
+    ; kkot:sentenceRomanization "bi waseo usan gajyeowayo."
+    ; kkot:sentenceIndonesia "Hujan, bawa payung."@id
+    .
+
+kkotw:word_93_돈
+    a kkot:Word
+    ; kkot:id 93
+    ; kkot:korean "돈"@ko
+    ; kkot:romanization "don"
+    ; kkot:bahasaIndonesia "uang"@id
+    ; kkot:english "money"@en
+    ; kkot:type "noun"
+    ; kkot:category "daily_object"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "화폐"@ko ; kkot:romanization "hwapye" ; kkot:bahasaIndonesia "uang / mata uang (formal)"@id ; kkot:english "currency (formal)"@en ]
+    ; kkot:hasExample kkote:example_93
+    .
+
+kkote:example_93
+    a kkot:Example
+    ; kkot:sentenceKorean "돈이 없어요."@ko
+    ; kkot:sentenceRomanization "doni eopseoyo."
+    ; kkot:sentenceIndonesia "Saya tidak punya uang."@id
+    .
+
+kkotw:word_94_약
+    a kkot:Word
+    ; kkot:id 94
+    ; kkot:korean "약"@ko
+    ; kkot:romanization "yak"
+    ; kkot:bahasaIndonesia "obat"@id
+    ; kkot:english "medicine"@en
+    ; kkot:type "noun"
+    ; kkot:category "daily_object"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "의약품"@ko ; kkot:romanization "uiyakpum" ; kkot:bahasaIndonesia "produk farmasi (formal)"@id ; kkot:english "pharmaceutical product (formal)"@en ]
+    ; kkot:hasExample kkote:example_94
+    .
+
+kkote:example_94
+    a kkot:Example
+    ; kkot:sentenceKorean "약을 먹어요."@ko
+    ; kkot:sentenceRomanization "yageul meogeoyo."
+    ; kkot:sentenceIndonesia "Minum obat."@id
+    .
+
+kkotw:word_95_지갑
+    a kkot:Word
+    ; kkot:id 95
+    ; kkot:korean "지갑"@ko
+    ; kkot:romanization "jigap"
+    ; kkot:bahasaIndonesia "dompet"@id
+    ; kkot:english "wallet / purse"@en
+    ; kkot:type "noun"
+    ; kkot:category "daily_object"
+    ; kkot:hasExample kkote:example_95
+    .
+
+kkote:example_95
+    a kkot:Example
+    ; kkot:sentenceKorean "지갑을 가지고 왔어요?"@ko
+    ; kkot:sentenceRomanization "jigabeul gajigo wasseoyo?"
+    ; kkot:sentenceIndonesia "Sudah bawa dompet?"@id
+    .
+
+kkotw:word_96_안경
+    a kkot:Word
+    ; kkot:id 96
+    ; kkot:korean "안경"@ko
+    ; kkot:romanization "angyeong"
+    ; kkot:bahasaIndonesia "kacamata"@id
+    ; kkot:english "glasses / spectacles"@en
+    ; kkot:type "noun"
+    ; kkot:category "daily_object"
+    ; kkot:hasExample kkote:example_96
+    .
+
+kkote:example_96
+    a kkot:Example
+    ; kkot:sentenceKorean "안경을 쓰고 있어요."@ko
+    ; kkot:sentenceRomanization "angyeongeul sseugo isseoyo."
+    ; kkot:sentenceIndonesia "Sedang memakai kacamata."@id
+    .
+
+kkotw:word_97_열쇠
+    a kkot:Word
+    ; kkot:id 97
+    ; kkot:korean "열쇠"@ko
+    ; kkot:romanization "yeolsoe"
+    ; kkot:bahasaIndonesia "kunci"@id
+    ; kkot:english "key"@en
+    ; kkot:type "noun"
+    ; kkot:category "daily_object"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "키"@ko ; kkot:romanization "ki" ; kkot:bahasaIndonesia "kunci (serapan Inggris)"@id ; kkot:english "key (loanword)"@en ]
+    ; kkot:hasExample kkote:example_97
+    .
+
+kkote:example_97
+    a kkot:Example
+    ; kkot:sentenceKorean "열쇠를 잃어버렸어요."@ko
+    ; kkot:sentenceRomanization "yeolsoereul ileobeoryeosseoyo."
+    ; kkot:sentenceIndonesia "Kunci saya hilang."@id
+    .
+
+kkotw:word_98_선물
+    a kkot:Word
+    ; kkot:id 98
+    ; kkot:korean "선물"@ko
+    ; kkot:romanization "seonmul"
+    ; kkot:bahasaIndonesia "hadiah / kado"@id
+    ; kkot:english "gift / present"@en
+    ; kkot:type "noun"
+    ; kkot:category "daily_object"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "기념품"@ko ; kkot:romanization "ginyeompum" ; kkot:bahasaIndonesia "suvenir / oleh-oleh"@id ; kkot:english "souvenir"@en ]
+    ; kkot:hasExample kkote:example_98
+    .
+
+kkote:example_98
+    a kkot:Example
+    ; kkot:sentenceKorean "생일 선물을 받았어요."@ko
+    ; kkot:sentenceRomanization "saengil seonmureul badasseoyo."
+    ; kkot:sentenceIndonesia "Menerima hadiah ulang tahun."@id
+    .
+
+kkotw:word_99_침대
+    a kkot:Word
+    ; kkot:id 99
+    ; kkot:korean "침대"@ko
+    ; kkot:romanization "chimdae"
+    ; kkot:bahasaIndonesia "tempat tidur"@id
+    ; kkot:english "bed"@en
+    ; kkot:type "noun"
+    ; kkot:category "daily_object"
+    ; kkot:hasExample kkote:example_99
+    .
+
+kkote:example_99
+    a kkot:Example
+    ; kkot:sentenceKorean "침대에 누워요."@ko
+    ; kkot:sentenceRomanization "chimdaee nuwoyo."
+    ; kkot:sentenceIndonesia "Berbaring di tempat tidur."@id
+    .
+
+kkotw:word_100_수건
+    a kkot:Word
+    ; kkot:id 100
+    ; kkot:korean "수건"@ko
+    ; kkot:romanization "sugeon"
+    ; kkot:bahasaIndonesia "handuk"@id
+    ; kkot:english "towel"@en
+    ; kkot:type "noun"
+    ; kkot:category "daily_object"
+    ; kkot:hasSynonym [ a kkot:Word ; kkot:korean "타월"@ko ; kkot:romanization "tawol" ; kkot:bahasaIndonesia "handuk (serapan)"@id ; kkot:english "towel (loanword)"@en ]
+    ; kkot:hasExample kkote:example_100
+    .
+
+kkote:example_100
+    a kkot:Example
+    ; kkot:sentenceKorean "수건으로 닦아요."@ko
+    ; kkot:sentenceRomanization "sugeoneuro dakkayo."
+    ; kkot:sentenceIndonesia "Mengelap dengan handuk."@id
+    .

@@ -1,0 +1,101 @@
+ID,Korean (한국어),Romanization,Bahasa Indonesia,English,Type,Category,Sinonim (KR),Sinonim Romanization,Sinonim (ID),Sinonim (EN),Antonim (KR),Antonim Romanization,Antonim (ID),Antonim (EN),Contoh Kalimat (KR),Contoh Romanization,Contoh (ID)
+1,안녕하세요,annyeonghaseyo,halo (formal),hello (formal),expression,greeting,,,,,,,,,"안녕하세요, 처음 뵙겠습니다.","annyeonghaseyo, cheoeum boepgesseumnida.","Halo, salam kenal."
+2,안녕,annyeong,hai / halo (informal),hi / hello (informal),expression,greeting,,,,,,,,,안녕! 잘 지냈어?,annyeong! jal jinaesseo?,Hai! Apa kabar?
+3,감사합니다,gamsahamnida,terima kasih (formal),thank you (formal),expression,greeting,고마워요,gomawoyo,terima kasih (semi-formal),thank you (semi-formal),,,,,도와주셔서 감사합니다.,dowajusyeoseo gamsahamnida.,Terima kasih sudah membantu.
+4,고마워요,gomawoyo,terima kasih (semi-formal),thank you (semi-formal),expression,greeting,감사합니다,gamsahamnida,terima kasih (formal),thank you (formal),,,,,선물 고마워요.,seonmul gomawoyo.,Terima kasih atas hadiahnya.
+5,죄송합니다,joesonghamnida,maaf (formal),sorry (formal),expression,greeting,미안해요,mianhaeyo,maaf (semi-formal),sorry (semi-formal),,,,,늦어서 죄송합니다.,neujeoseo joesonghamnida.,Maaf sudah terlambat.
+6,미안해요,mianhaeyo,maaf (semi-formal),sorry (semi-formal),expression,greeting,죄송합니다,joesonghamnida,maaf (formal),sorry (formal),,,,,"미안해요, 제 실수예요.","mianhaeyo, je silsuyeyo.","Maaf, itu salah saya."
+7,반갑습니다,bangapseumnida,senang bertemu,nice to meet you,expression,greeting,만나서 반가워요,mannaseo bangawoyo,senang bertemu (semi-formal),nice to meet you (semi-formal),,,,,"처음 뵙겠습니다, 반갑습니다.","cheoeum boepgesseumnida, bangapseumnida.","Salam kenal, senang bertemu."
+8,네,ne,ya / iya,yes,expression,greeting,맞아요,majayo,benar / iya,that's right / yes,아니요,aniyo,tidak / bukan,no,"네, 알겠습니다.","ne, algesseumnida.","Ya, saya mengerti."
+9,아니요,aniyo,tidak / bukan,no,expression,greeting,아니에요,anieyo,bukan / tidak,it's not,네,ne,ya,yes,"아니요, 저는 학생이 아니에요.","aniyo, jeoneun haksaengi anieyo.","Tidak, saya bukan pelajar."
+10,잘 부탁드립니다,jal butakdeurimnida,mohon bimbingannya,please take care of me,expression,greeting,잘 부탁해요,jal butakaehaeyo,mohon bantuannya (semi-formal),please take care of me (semi-formal),,,,,앞으로 잘 부탁드립니다.,apeuro jal butakdeurimnida.,Mohon bimbingannya ke depan.
+11,일,il,satu (sino-Korea),one (sino-Korean),numeral,number_time,하나,hana,satu (Korea asli),one (native Korean),,,,,일 더하기 일은 이예요.,il deohagi ireun iyeyo.,Satu ditambah satu adalah dua.
+12,이,i,dua (sino-Korea),two (sino-Korean),numeral,number_time,둘,dul,dua (Korea asli),two (native Korean),,,,,이 번 버스를 타세요.,i beon beoseureul taseyo.,Naik bus nomor dua.
+13,삼,sam,tiga (sino-Korea),three (sino-Korean),numeral,number_time,셋,set,tiga (Korea asli),three (native Korean),,,,,삼 일 후에 만나요.,sam il hue mannayo.,Kita bertemu tiga hari lagi.
+14,오늘,oneul,hari ini,today,noun,number_time,금일,geumil,hari ini (formal/tulisan),today (formal/written),,,,,오늘 날씨가 좋아요.,oneul nalssiga joayo.,Cuaca hari ini bagus.
+15,어제,eoje,kemarin,yesterday,noun,number_time,전날,jeonnal,hari sebelumnya,the day before,내일,naeil,besok,tomorrow,어제 영화를 봤어요.,eoje yeonghwareul bwasseoyo.,Kemarin saya menonton film.
+16,내일,naeil,besok,tomorrow,noun,number_time,다음 날,daeum nal,hari berikutnya,the next day,어제,eoje,kemarin,yesterday,내일 학교에 가요.,naeil hakgyoe gayo.,Besok pergi ke sekolah.
+17,지금,jigeum,sekarang,now,adverb,number_time,현재,hyeonjae,saat ini / masa kini,present / currently,나중에,najunge,nanti / belakangan,later,지금 몇 시예요?,jigeum myeot siyeyo?,Sekarang jam berapa?
+18,아침,achim,pagi,morning,noun,number_time,오전,ojeon,pagi / sebelum tengah hari,morning / a.m.,저녁,jeonyeok,malam / sore,evening,아침에 운동해요.,achime undonghaeyo.,Olahraga di pagi hari.
+19,저녁,jeonyeok,malam / sore hari,evening / dinner,noun,number_time,밤,bam,malam (larut),night (late),아침,achim,pagi,morning,저녁에 가족과 함께 먹어요.,jeonyeoge gajokgwa hamkke meogeoyo.,Makan malam bersama keluarga.
+20,시간,sigan,waktu / jam,time / hour,noun,number_time,시각,sigak,waktu (titik tertentu),time (specific moment),,,,,시간이 없어요.,sigani eopseoyo.,Saya tidak punya waktu.
+21,어머니,eomeoni,ibu,mother,noun,family_people,엄마,eomma,mama (informal),mom (informal),아버지,abeoji,ayah,father,어머니를 사랑해요.,eomeonireul saranghaeyo.,Saya mencintai ibu.
+22,아버지,abeoji,ayah,father,noun,family_people,아빠,appa,papa (informal),dad (informal),어머니,eomeoni,ibu,mother,아버지가 일하세요.,abeojiga ilhaseyo.,Ayah bekerja.
+23,형,hyeong,kakak laki-laki (dari sudut pandang laki-laki),older brother (male speaker),noun,family_people,오빠,oppa,kakak laki-laki (dari sudut pandang perempuan),older brother (female speaker),남동생,namdongsaeng,adik laki-laki,younger brother,형이랑 게임해요.,hyeongirang geimhaeyo.,Main game sama kakak laki-laki.
+24,오빠,oppa,kakak laki-laki (dari sudut pandang perempuan),older brother (female speaker),noun,family_people,형,hyeong,kakak laki-laki (dari sudut pandang laki-laki),older brother (male speaker),남동생,namdongsaeng,adik laki-laki,younger brother,오빠가 저를 도와줬어요.,oppaga jeoreul dowajwosseoyo.,Kakak laki-laki membantuku.
+25,언니,eonni,kakak perempuan (dari sudut pandang perempuan),older sister (female speaker),noun,family_people,누나,nuna,kakak perempuan (dari sudut pandang laki-laki),older sister (male speaker),여동생,yeodongsaeng,adik perempuan,younger sister,언니랑 쇼핑 갔어요.,eonnirang syoping gasseoyo.,Pergi belanja dengan kakak perempuan.
+26,동생,dongsaeng,adik (laki-laki atau perempuan),younger sibling,noun,family_people,아우,au,adik (formal/sastra),younger sibling (formal),형,hyeong,kakak laki-laki (sapaan laki-laki),older brother (male speaker),동생이 귀여워요.,dongsaengi gwiyeowoyo.,Adiknya lucu.
+27,할머니,halmeoni,nenek,grandmother,noun,family_people,조모,jomo,nenek (formal/tulisan ilmiah),grandmother (formal/written),할아버지,harabeoji,kakek,grandfather,할머니 댁에 갔어요.,halmeoni daege gasseoyo.,Saya pergi ke rumah nenek.
+28,할아버지,harabeoji,kakek,grandfather,noun,family_people,조부,jobu,kakek (formal/tulisan ilmiah),grandfather (formal/written),할머니,halmeoni,nenek,grandmother,할아버지가 이야기를 들려줬어요.,harabeojiga iyagireul deullyeojwosseoyo.,Kakek menceritakan sebuah kisah.
+29,친구,chingu,teman / sahabat,friend,noun,family_people,벗,beot,sahabat (formal/puitis),friend (formal/poetic),적,jeok,musuh,enemy,친구랑 카페에 가요.,chingurang kapee gayo.,Pergi ke kafe dengan teman.
+30,학생,haksaeng,pelajar / mahasiswa,student,noun,family_people,학도,hakdo,pelajar (formal/puitis),student (formal/poetic),선생님,seonsaengnim,guru,teacher,저는 대학교 학생이에요.,jeoneun daehakgyo haksaengieyo.,Saya mahasiswa.
+31,밥,bap,nasi / makanan,rice / meal,noun,food_drink,쌀,ssal,beras (mentah),rice (uncooked),,,,,밥 먹었어요?,bap meogeosseoyo?,Sudah makan?
+32,물,mul,air,water,noun,food_drink,음료,eumnyo,minuman,beverage,,,,,물 한 잔 주세요.,mul han jan juseyo.,Tolong satu gelas air.
+33,김치,gimchi,kimchi,kimchi,noun,food_drink,,,,,,,,,김치는 매워요.,gimchineun maewoyo.,Kimchi itu pedas.
+34,불고기,bulgogi,bulgogi (daging sapi panggang manis),bulgogi (grilled marinated beef),noun,food_drink,,,,,,,,,불고기가 정말 맛있어요.,bulgogiga jeongmal massisseoyo.,Bulgogi sangat enak.
+35,비빔밥,bibimbap,nasi campur (dengan sayuran dan gochujang),mixed rice bowl,noun,food_drink,,,,,,,,,비빔밥에 고추장을 넣어요.,bibimbabe gochujjangeul neoeoyo.,Masukkan gochujang ke bibimbap.
+36,라면,ramyeon,mi instan,instant noodle,noun,food_drink,,,,,,,,,라면 끓여 먹어요.,ramyeon kkeulhyeo meogeoyo.,Masak dan makan ramyeon.
+37,떡볶이,tteokbokki,tteokbokki (kue beras saus pedas),spicy rice cake,noun,food_drink,,,,,,,,,떡볶이는 매운데 맛있어요.,tteokbokkineun maeunde massisseoyo.,Tteokbokki pedas tapi enak.
+38,커피,keopi,kopi,coffee,noun,food_drink,,,,,차,cha,teh,tea,아침마다 커피를 마셔요.,achimmada keopireul masyeoyo.,Setiap pagi minum kopi.
+39,차,cha,teh,tea,noun,food_drink,녹차,nokcha,teh hijau,green tea,커피,keopi,kopi,coffee,녹차 한 잔 마실래요?,nokcha han jan masillaeoyo?,Mau minum teh hijau?
+40,과일,gwail,buah-buahan,fruit,noun,food_drink,과실,gwasil,buah (formal/ilmiah),fruit (formal/scientific),,,,,과일을 많이 먹어야 해요.,gwailreul mani meogeoaya haeyo.,Harus banyak makan buah.
+41,야채,yachae,sayuran,vegetable,noun,food_drink,채소,chaeso,sayuran (kata yang lebih umum),vegetable (more common word),,,,,야채를 골고루 먹어요.,yachaereul golgoroo meogeoyo.,Makan sayuran secara merata.
+42,고기,gogi,daging,meat,noun,food_drink,육류,yungnyu,daging / produk hewani (formal),meat / animal products (formal),야채,yachae,sayuran,vegetable,고기를 좋아해요.,gogireul joahaeyo.,Saya suka daging.
+43,맛있다,masitda,enak / lezat,delicious,adjective,food_drink,맛나다,mannada,lezat / nikmat,tasty,맛없다,maseoptda,tidak enak,tasteless / bad-tasting,이 음식이 너무 맛있어요.,i eumsigi neomu massisseoyo.,Makanan ini sangat enak.
+44,맵다,maepda,pedas,spicy / hot,adjective,food_drink,칼칼하다,kalkalada,pedas dan segar (ringan),mildly spicy,달다,dalda,manis,sweet,이 음식은 너무 매워요.,i eumsigeun neomu maewoyo.,Makanan ini terlalu pedas.
+45,달다,dalda,manis,sweet,adjective,food_drink,달콤하다,dalkomhada,manis (lebih ekspresif),sweet (more expressive),짜다,jjada,asin,salty,이 케이크가 달아요.,i keikeuga darayo.,Kue ini manis.
+46,학교,hakgyo,sekolah,school,noun,place_direction,학원,hagwon,lembaga bimbingan belajar / kursus,private academy / tutoring center,,,,,학교에 가요.,hakgyoe gayo.,Pergi ke sekolah.
+47,집,jip,rumah,house / home,noun,place_direction,가정,gajeong,rumah tangga / keluarga,home / household,학교,hakgyo,sekolah,school,집에 가고 싶어요.,jibe gago sipeoyo.,Saya ingin pulang ke rumah.
+48,병원,byeongwon,rumah sakit,hospital,noun,place_direction,의원,uiwon,klinik / puskesmas,clinic,,,,,병원에 가야 해요.,byeongwone gaya haeyo.,Harus pergi ke rumah sakit.
+49,식당,sikdang,restoran / warung makan,restaurant,noun,place_direction,음식점,eumsikjeom,restoran / tempat makan,restaurant / eatery,,,,,이 근처에 식당이 있어요?,i geuncheoe sikdangi isseoyo?,Ada restoran di dekat sini?
+50,도서관,doseogwan,perpustakaan,library,noun,place_direction,,,,,,,,,도서관에서 책 읽어요.,doseogwaneseo chaek ilgeoyo.,Membaca buku di perpustakaan.
+51,왼쪽,oenjjok,kiri,left,noun,place_direction,좌측,jwacheuik,kiri (formal),left (formal),오른쪽,oreunjjok,kanan,right,왼쪽으로 가세요.,oenjjogeuro gaseyo.,Pergi ke arah kiri.
+52,오른쪽,oreunjjok,kanan,right,noun,place_direction,우측,ucheuik,kanan (formal),right (formal),왼쪽,oenjjok,kiri,left,오른쪽으로 도세요.,oreunjjogeuro doseyo.,Belok kanan.
+53,앞,ap,depan,front / ahead,noun,place_direction,전방,jeonbang,bagian depan (militer/formal),front (military/formal),뒤,dwi,belakang,back / behind,학교 앞에서 만나요.,hakgyo apeseo mannayo.,Bertemu di depan sekolah.
+54,뒤,dwi,belakang,back / behind,noun,place_direction,후방,hubang,bagian belakang (formal),rear / back (formal),앞,ap,depan,front,뒤에 사람이 있어요.,dwie sarami isseoyo.,Ada orang di belakang.
+55,멀다,meolda,jauh,far,adjective,place_direction,,,,,가깝다,gakkapda,dekat,close / near,집이 학교에서 멀어요.,jibi hakgyoeseo meoreoyo.,Rumah jauh dari sekolah.
+56,가다,gada,pergi,to go,verb,daily_activity,이동하다,idonghada,berpindah / bergerak,to move,오다,oda,datang,to come,어디 가요?,eodi gayo?,Mau ke mana?
+57,오다,oda,datang,to come,verb,daily_activity,도착하다,dochakada,tiba / sampai,to arrive,가다,gada,pergi,to go,언제 와요?,eonje wayo?,Kapan datang?
+58,자다,jada,tidur,to sleep,verb,daily_activity,잠들다,jamdeulda,tertidur / jatuh tertidur,to fall asleep,일어나다,ireonada,bangun,to wake up,일찍 자야 해요.,iljjik jaya haeyo.,Harus tidur lebih awal.
+59,일어나다,ireonada,bangun tidur,to wake up,verb,daily_activity,기상하다,gisanghada,bangun (formal),to get up (formal),자다,jada,tidur,to sleep,몇 시에 일어나요?,myeot sie ireonayo?,Jam berapa bangun?
+60,공부하다,gongbuhada,belajar,to study,verb,daily_activity,배우다,baeuda,mempelajari / belajar,to learn,,,,,한국어를 공부해요.,hangugoreul gongbuhaeyo.,Saya belajar bahasa Korea.
+61,먹다,meokda,makan,to eat,verb,daily_activity,드시다,deusida,makan (honorific),to eat (honorific),굶다,gumda,berpuasa / tidak makan,to fast / to starve,뭐 먹을까요?,mwo meogeulkkayo?,Mau makan apa?
+62,마시다,masida,minum,to drink,verb,daily_activity,드시다,deusida,minum (honorific),to drink (honorific),,,,,물을 많이 마셔야 해요.,mureul mani masyeoya haeyo.,Harus banyak minum air.
+63,읽다,ikda,membaca,to read,verb,daily_activity,독서하다,doksuhada,membaca (formal),to read (formal),쓰다,sseuda,menulis,to write,책을 읽어요.,chaekeul ilgeoyo.,Membaca buku.
+64,쓰다,sseuda,menulis,to write,verb,daily_activity,적다,jeokda,mencatat / menulis (singkat),to jot down / note,읽다,ikda,membaca,to read,일기를 써요.,ilgireul sseoyo.,Menulis buku harian.
+65,말하다,malhada,berbicara / berkata,to speak / to say,verb,daily_activity,이야기하다,iyagihada,bercerita / ngobrol,to talk / to chat,듣다,deutda,mendengar,to listen,한국어로 말해요.,hangugoro malhaeyo.,Berbicara dalam bahasa Korea.
+66,듣다,deutda,mendengar / mendengarkan,to listen / to hear,verb,daily_activity,경청하다,gyeongcheonghada,mendengarkan dengan seksama (formal),to listen attentively (formal),말하다,malhada,berbicara,to speak,음악을 들어요.,eumageul deureoyo.,Mendengarkan musik.
+67,만나다,mannada,bertemu,to meet,verb,daily_activity,만남을 갖다,mannaimeul gatda,mengadakan pertemuan,to have a meeting,헤어지다,heeojida,berpisah,to part / to separate,친구를 만나요.,chingureul mannayo.,Bertemu teman.
+68,사다,sada,membeli,to buy,verb,daily_activity,구매하다,gumaehada,membeli (formal),to purchase (formal),팔다,palda,menjual,to sell,옷을 사러 가요.,oseul sareo gayo.,Pergi membeli baju.
+69,운동하다,undonghada,berolahraga,to exercise,verb,daily_activity,체육하다,cheyukhada,berolahraga (formal/pendidikan),to do physical education,,,,,매일 운동해요.,maeil undonghaeyo.,Olahraga setiap hari.
+70,요리하다,yorihada,memasak,to cook,verb,daily_activity,음식을 만들다,eumsigeur mandeulda,membuat makanan,to make food,,,,,저녁을 요리해요.,jeonyeogeul yorihaeyo.,Memasak makan malam.
+71,행복하다,haengbokhada,bahagia,to be happy,adjective,emotion_trait,기쁘다,gippeuda,gembira / senang,to be glad / joyful,슬프다,seulpeuda,sedih,to be sad,요즘 행복해요.,yojeum haengbokhaeyo.,Belakangan ini saya bahagia.
+72,슬프다,seulpeuda,sedih,to be sad,adjective,emotion_trait,서럽다,seoropda,sedih / pilu (ekspresi mendalam),to feel sorrowful,행복하다,haengbokhada,bahagia,to be happy,왜 슬퍼요?,wae seulpeoyo?,Kenapa sedih?
+73,무섭다,museopda,takut / menakutkan,to be scared / scary,adjective,emotion_trait,두렵다,duryeopda,gentar / takut (lebih mendalam),to be fearful,용감하다,yonggamhada,berani,to be brave,귀신이 무서워요.,gwisinii museowoyo.,Saya takut hantu.
+74,피곤하다,pigonhada,lelah / capek,to be tired,adjective,emotion_trait,지치다,jichida,kelelahan / keletihan,to be exhausted,활기차다,hwalgichada,bersemangat / energik,to be energetic,오늘 너무 피곤해요.,oneul neomu pigonhaeyo.,Hari ini sangat lelah.
+75,재미있다,jaemiitda,seru / menyenangkan,to be fun / interesting,adjective,emotion_trait,흥미롭다,heungmiropda,menarik / mengasyikkan,to be interesting / absorbing,재미없다,jaemieopda,membosankan,to be boring,이 영화가 재미있어요.,i yeonghwaga jaemiisseoyo.,Film ini seru.
+76,아프다,apeuda,sakit,to be sick / in pain,adjective,emotion_trait,쑤시다,ssusida,nyeri / pegal,to ache / to throb,건강하다,geonganghada,sehat,to be healthy,머리가 아파요.,meoriga apayo.,Kepala saya sakit.
+77,예쁘다,yeppeuda,cantik / indah,to be pretty / beautiful,adjective,emotion_trait,아름답다,areumdapda,indah / cantik (lebih puitis),to be beautiful (more poetic),못생겼다,motsengyeotda,jelek / tidak menarik,to be ugly,꽃이 예뻐요.,kkochi yeppeoyo.,Bunganya cantik.
+78,귀엽다,gwiyeopda,lucu / imut,to be cute,adjective,emotion_trait,앙증맞다,angjjeunmajda,imut / menggemaskan,to be adorable,,,,,고양이가 귀여워요.,goyangi gwiyeowoyo.,Kucingnya imut.
+79,똑똑하다,ttokttokada,pintar / cerdas,to be smart,adjective,emotion_trait,영리하다,yeongnirhada,cerdik / pandai,to be clever,멍청하다,meongcheonghada,bodoh,to be stupid,그 학생은 똑똑해요.,geu haksaengeun ttokttokhaeyo.,Murid itu pintar.
+80,친절하다,chinjeolhada,ramah / baik hati,to be kind,adjective,emotion_trait,다정하다,dajeonghada,penuh kasih sayang / hangat,to be affectionate,불친절하다,bulchinjeolhada,tidak ramah,to be unkind,한국 사람들은 친절해요.,hanguk saramdeureun chinjeolhaeyo.,Orang Korea itu ramah.
+81,바쁘다,bappeuda,sibuk,to be busy,adjective,emotion_trait,분주하다,bunjuhada,sibuk / aktif bergerak (formal),to be bustling / occupied,한가하다,hangahada,santai / tidak sibuk,to be free / leisurely,요즘 너무 바빠요.,yojeum neomu bappayo.,Belakangan ini sangat sibuk.
+82,어렵다,eoryeopda,sulit / susah,to be difficult,adjective,emotion_trait,힘들다,himdeulda,berat / sulit (lebih ekpresif),to be hard / tough,쉽다,swipda,mudah,to be easy,한국어가 어려워요.,hangugoga eoryeowoyo.,Bahasa Korea itu sulit.
+83,비싸다,bissada,mahal,to be expensive,adjective,emotion_trait,고가이다,gogaida,berharga tinggi (formal),to be high-priced (formal),싸다,ssada,murah,to be cheap,이 옷이 너무 비싸요.,i osi neomu bissayo.,Baju ini terlalu mahal.
+84,크다,keuda,besar / tinggi,to be big / tall,adjective,emotion_trait,거대하다,geodaehada,sangat besar / raksasa,to be gigantic / huge,작다,jakda,kecil,to be small,키가 커요.,kiga keoyo.,Badannya tinggi.
+85,사랑하다,saranghada,mencintai,to love,verb,emotion_trait,좋아하다,joahada,menyukai / suka,to like,미워하다,miweohada,membenci,to hate,당신을 사랑해요.,dangsineul saranghaeyo.,Saya mencintaimu.
+86,책,chaek,buku,book,noun,daily_object,도서,doseo,buku / karya tulis (formal),book / publication (formal),,,,,책을 읽어요.,chaekeul ilgeoyo.,Membaca buku.
+87,가방,gabang,tas,bag,noun,daily_object,백,baek,tas / kantong (serapan),bag (loanword),,,,,가방이 무거워요.,gabangi mugeowoyo.,Tasnya berat.
+88,옷,ot,pakaian / baju,clothes,noun,daily_object,의류,uirnyu,pakaian (formal),clothing (formal),,,,,새 옷을 샀어요.,sae oseul sasseoyo.,Membeli baju baru.
+89,신발,sinbal,sepatu,shoes,noun,daily_object,구두,gudu,sepatu formal / kulit,formal shoes / leather shoes,,,,,신발을 벗어요.,sinbareul beoseoyo.,Melepas sepatu.
+90,핸드폰,haendeupon,handphone / ponsel,mobile phone,noun,daily_object,휴대폰,hyudaepon,ponsel (lebih formal),mobile phone (more formal),,,,,핸드폰을 충전해요.,haendeuphoneul chungjeonhaeyo.,Mengisi daya handphone.
+91,시계,sigye,jam / arloji,clock / watch,noun,daily_object,손목시계,sonmoksigye,jam tangan,wristwatch,,,,,시계를 봐요.,sigyereul bwayo.,Melihat jam.
+92,우산,usan,payung,umbrella,noun,daily_object,,,,,,,,,비 와서 우산 가져와요.,bi waseo usan gajyeowayo.,"Hujan, bawa payung."
+93,돈,don,uang,money,noun,daily_object,화폐,hwapye,uang / mata uang (formal),currency (formal),,,,,돈이 없어요.,doni eopseoyo.,Saya tidak punya uang.
+94,약,yak,obat,medicine,noun,daily_object,의약품,uiyakpum,produk farmasi (formal),pharmaceutical product (formal),,,,,약을 먹어요.,yageul meogeoyo.,Minum obat.
+95,지갑,jigap,dompet,wallet / purse,noun,daily_object,,,,,,,,,지갑을 가지고 왔어요?,jigabeul gajigo wasseoyo?,Sudah bawa dompet?
+96,안경,angyeong,kacamata,glasses / spectacles,noun,daily_object,,,,,,,,,안경을 쓰고 있어요.,angyeongeul sseugo isseoyo.,Sedang memakai kacamata.
+97,열쇠,yeolsoe,kunci,key,noun,daily_object,키,ki,kunci (serapan Inggris),key (loanword),,,,,열쇠를 잃어버렸어요.,yeolsoereul ileobeoryeosseoyo.,Kunci saya hilang.
+98,선물,seonmul,hadiah / kado,gift / present,noun,daily_object,기념품,ginyeompum,suvenir / oleh-oleh,souvenir,,,,,생일 선물을 받았어요.,saengil seonmureul badasseoyo.,Menerima hadiah ulang tahun.
+99,침대,chimdae,tempat tidur,bed,noun,daily_object,,,,,,,,,침대에 누워요.,chimdaee nuwoyo.,Berbaring di tempat tidur.
+100,수건,sugeon,handuk,towel,noun,daily_object,타월,tawol,handuk (serapan),towel (loanword),,,,,수건으로 닦아요.,sugeoneuro dakkayo.,Mengelap dengan handuk.
