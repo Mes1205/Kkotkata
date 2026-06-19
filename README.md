@@ -1,45 +1,56 @@
-# KkotKata
+# 🌸 KkotKata
 
-Sistem Pencarian Kosakata Indonesia–Korea Berbasis Semantic Web dan SPARQL
+## Sistem Pencarian Kosakata Indonesia–Korea Berbasis Semantic Web dan SPARQL
 
-## Deskripsi Proyek
+KkotKata adalah aplikasi kamus bilingual Bahasa Indonesia–Bahasa Korea berbasis **Semantic Web** yang memungkinkan pengguna mencari kosakata beserta informasi semantiknya. Sistem ini menggunakan **RDF (Resource Description Framework)**, **OWL (Web Ontology Language)**, dan **SPARQL Query Language** untuk menyimpan, menghubungkan, serta mengambil data kosakata secara terstruktur.
 
-KkotKata merupakan aplikasi kamus bilingual Bahasa Indonesia dan Bahasa Korea yang dibangun menggunakan teknologi Semantic Web. Sistem memanfaatkan RDF (Resource Description Framework), OWL (Web Ontology Language), dan SPARQL untuk merepresentasikan serta mengakses data kosakata secara terstruktur.
+Nama **KkotKata** berasal dari gabungan kata **Kkot (꽃)** yang berarti *bunga* dalam Bahasa Korea dan **Kata** dalam Bahasa Indonesia. Filosofi nama ini menggambarkan proses berkembangnya pengetahuan bahasa seperti bunga yang terus tumbuh.
 
-Nama **KkotKata** berasal dari gabungan kata *Kkot* (꽃) yang berarti bunga dalam Bahasa Korea dan *Kata* dalam Bahasa Indonesia. Proyek ini bertujuan untuk menyediakan media pembelajaran kosakata Indonesia–Korea yang tidak hanya menyimpan data terjemahan, tetapi juga hubungan semantik seperti kategori, sinonim, antonim, dan contoh kalimat.
+Berbeda dengan kamus biasa yang hanya menyimpan pasangan kata dan terjemahan, KkotKata menyimpan hubungan semantik seperti:
 
----
-
-## Fitur Utama
-
-* Pencarian kosakata Indonesia → Korea
-* Pencarian kosakata Korea → Indonesia
-* Menampilkan terjemahan Hangul
-* Menampilkan romanisasi
-* Menampilkan pelafalan
-* Menampilkan kategori kosakata
-* Menampilkan contoh kalimat
-* Query data menggunakan SPARQL
-* Penyimpanan data berbasis RDF
-* Integrasi Apache Jena Fuseki
+* Kategori kosakata
+* Sinonim
+* Antonim
+* Romanisasi
+* Pelafalan
+* Contoh penggunaan dalam kalimat
 
 ---
 
-## Teknologi yang Digunakan
+# 📌 Fitur Utama
+
+Fitur yang tersedia pada aplikasi KkotKata:
+
+*  Pencarian kosakata Indonesia → Korea
+*  Pencarian kosakata Korea → Indonesia
+*  Menampilkan tulisan Hangul Korea
+*  Menampilkan romanisasi
+*  Menampilkan informasi pelafalan
+*  Menampilkan kategori kosakata
+*  Menampilkan contoh kalimat
+*  Relasi semantik sinonim dan antonim
+*  Penyimpanan data menggunakan RDF Turtle
+*  Query data menggunakan SPARQL
+*  Integrasi dengan Apache Jena Fuseki
+
+---
+
+# 🛠️ Teknologi yang Digunakan
 
 | Komponen       | Teknologi             |
 | -------------- | --------------------- |
 | Backend        | Flask (Python)        |
 | Frontend       | HTML, CSS, JavaScript |
-| Triplestore    | Apache Jena Fuseki    |
-| Semantic Web   | RDF, OWL, Turtle      |
+| Semantic Web   | RDF, OWL              |
+| RDF Format     | Turtle (.ttl)         |
 | Query Language | SPARQL                |
-| Dataset        | CSV                   |
-| HTTP Client    | Requests              |
+| Triplestore    | Apache Jena Fuseki    |
+| Dataset Awal   | CSV                   |
+| HTTP Request   | Requests Library      |
 
 ---
 
-## Struktur Proyek
+# 📂 Struktur Folder Proyek
 
 ```text
 Kkotkata-main/
@@ -48,6 +59,7 @@ Kkotkata-main/
 ├── kkotkata-dataset.csv
 │
 ├── kamus-app/
+│   │
 │   ├── app.py
 │   ├── requirements.txt
 │   ├── kkotkata.ttl
@@ -57,6 +69,7 @@ Kkotkata-main/
 │   │   └── index.html
 │   │
 │   └── static/
+│       │
 │       ├── css/
 │       │   └── style.css
 │       │
@@ -68,80 +81,143 @@ Kkotkata-main/
 
 ---
 
-## Arsitektur Sistem
+# 🏗️ Arsitektur Sistem
+
+Alur kerja aplikasi:
 
 ```text
-Pengguna
-    │
-    ▼
-Frontend (HTML/CSS/JS)
-    │
-    ▼
+User
+ |
+ ▼
+Frontend
+(HTML, CSS, JavaScript)
+ |
+ ▼
 Flask Backend
-    │
-    ▼
+(Python)
+ |
+ ▼
 SPARQL Query
-    │
-    ▼
+ |
+ ▼
 Apache Jena Fuseki
-    │
-    ▼
-Dataset RDF (.ttl)
+ |
+ ▼
+RDF Dataset
+(Turtle File)
 ```
+
+Penjelasan:
+
+1. User memasukkan kata melalui halaman website.
+2. Frontend mengirim request pencarian ke Flask.
+3. Flask membuat query SPARQL berdasarkan input.
+4. Query dikirim menuju Apache Jena Fuseki.
+5. Fuseki mencari data pada RDF Graph.
+6. Data hasil pencarian dikembalikan dan ditampilkan kepada user.
 
 ---
 
-## Instalasi dan Menjalankan Proyek
+# ⚙️ Panduan Instalasi
 
-### 1. Clone Repository
+## 1. Clone Repository
+
+Clone repository:
 
 ```bash
 git clone <repository-url>
+```
+
+Masuk folder:
+
+```bash
 cd Kkotkata-main
 ```
 
 ---
 
-### 2. Install Apache Jena Fuseki
+# 2. Install Apache Jena Fuseki
 
 Download Apache Jena Fuseki:
 
+```
 https://jena.apache.org/download/
-
-Ekstrak file hasil download.
-
-Jalankan Fuseki:
-
-```bash
-fuseki-server
 ```
 
-Buka browser:
+Ekstrak file Fuseki.
+
+Jalankan server:
+
+Windows:
+
+```bash
+fuseki-server.bat
+```
+
+Linux/Mac:
+
+```bash
+./fuseki-server
+```
+
+Apabila berhasil, buka:
 
 ```text
 http://localhost:3030
 ```
 
+Akan muncul halaman dashboard Fuseki.
+
 ---
 
-### 3. Membuat Dataset Fuseki
+# 3. Membuat Dataset RDF di Fuseki
 
-Masuk ke dashboard Fuseki.
+Pada dashboard Fuseki:
 
-Buat dataset baru:
+Klik:
 
 ```text
-Dataset Name: kkotkata
-Dataset Type: Persistent (TDB2)
+Manage Dataset
+        ↓
+Add New Dataset
+```
+
+Isi:
+
+```text
+Dataset Name : kkotkata
+Dataset Type : Persistent (TDB2)
+```
+
+Klik:
+
+```text
+Create Dataset
+```
+
+---
+
+## Upload Dataset RDF
+
+Masuk dataset:
+
+```text
+kkotkata
+```
+
+Pilih:
+
+```text
+Upload Data
 ```
 
 Upload file:
 
 ```text
-kkotkata.ttl
+kamus-app/kkotkata.ttl
 ```
 
-Pastikan endpoint tersedia pada:
+Jika berhasil endpoint SPARQL tersedia:
 
 ```text
 http://localhost:3030/kkotkata/sparql
@@ -149,108 +225,260 @@ http://localhost:3030/kkotkata/sparql
 
 ---
 
-### 4. Install Dependency Python
+# 4. Install Python Dependency
 
-Masuk ke folder aplikasi:
+Masuk folder aplikasi:
 
 ```bash
 cd kamus-app
 ```
 
-Install dependency:
+Install library:
 
 ```bash
 pip install -r requirements.txt
 ```
 
+Dependency utama:
+
+* Flask
+* Requests
+
 ---
 
-### 5. Jalankan Aplikasi
+# 5. Konfigurasi Endpoint Fuseki
+
+Buka:
+
+```text
+app.py
+```
+
+Pastikan endpoint:
+
+```python
+FUSEKI_ENDPOINT =
+"http://localhost:3030/kkotkata/sparql"
+```
+
+Sesuai dengan alamat Fuseki.
+
+---
+
+# 6. Jalankan Aplikasi
+
+Pastikan Fuseki sudah aktif.
+
+Jalankan Flask:
 
 ```bash
 python app.py
 ```
 
-Server Flask akan berjalan pada:
+Output:
 
 ```text
-http://127.0.0.1:5000
+Running on http://127.0.0.1:5000
 ```
 
-atau
+Buka browser:
 
 ```text
 http://localhost:5000
 ```
 
----
-
-## Konfigurasi Endpoint Fuseki
-
-Pada file:
-
-```python
-app.py
-```
-
-terdapat konfigurasi:
-
-```python
-FUSEKI_ENDPOINT = "http://localhost:3030/kkotkata/sparql"
-```
-
-Sesuaikan apabila menggunakan server atau port yang berbeda.
+Aplikasi siap digunakan.
 
 ---
 
-## Konversi Dataset CSV ke RDF
+# 📖 Panduan Pengguna
 
-Proyek menyediakan script:
+## 1. Membuka Website
+
+Buka aplikasi melalui browser:
 
 ```text
-csv2ttl.py
+localhost:5000
 ```
 
-yang digunakan untuk mengubah dataset CSV menjadi RDF Turtle.
+Halaman utama KkotKata akan muncul.
 
-Menjalankan script:
+---
 
-```bash
-python csv2ttl.py
+## 2. Melakukan Pencarian Kata
+
+Pada kolom pencarian:
+
+Masukkan kata Bahasa Indonesia:
+
+Contoh:
+
+```text
+apel
+```
+
+atau Bahasa Korea:
+
+```text
+사과
+```
+
+Klik tombol:
+
+```text
+Cari
+```
+
+---
+
+## 3. Melihat Detail Kosakata
+
+Sistem akan menampilkan:
+
+| Informasi      | Contoh          |
+| -------------- | --------------- |
+| Kata Indonesia | Apel            |
+| Hangul         | 사과              |
+| Romanisasi     | Sagwa           |
+| Pelafalan      | sa-gwa          |
+| Kategori       | Food & Drink    |
+| Sinonim        | Buah            |
+| Antonim        | -               |
+| Contoh Kalimat | Saya makan apel |
+
+---
+
+# 🔎 Contoh Hasil Penggunaan
+
+## Contoh 1
+
+Input:
+
+```text
+apel
 ```
 
 Output:
 
 ```text
+Kata Indonesia:
+Apel
+
+Bahasa Korea:
+사과
+
+Romanisasi:
+Sagwa
+
+Pelafalan:
+sa-gwa
+
+Kategori:
+Food & Drink
+
+Contoh:
+Saya membeli apel merah.
+```
+
+---
+
+## Contoh 2
+
+Input:
+
+```text
+안녕하세요
+```
+
+Output:
+
+```text
+Kata Indonesia:
+Halo
+
+Bahasa Korea:
+안녕하세요
+
+Romanisasi:
+Annyeonghaseyo
+
+Kategori:
+Greeting
+
+Contoh:
+안녕하세요, 만나서 반갑습니다.
+```
+
+---
+
+# 🔄 Konversi CSV menjadi RDF
+
+Dataset awal berbentuk:
+
+```text
+kkotkata-dataset.csv
+```
+
+Konversi menggunakan:
+
+```text
+csv2ttl.py
+```
+
+Jalankan:
+
+```bash
+python csv2ttl.py
+```
+
+Akan menghasilkan:
+
+```text
 kkotkata.ttl
 ```
 
+File RDF tersebut digunakan oleh Fuseki.
+
 ---
 
-## Contoh Query SPARQL
+# 💻 Contoh Query SPARQL
+
+Query mencari kata:
 
 ```sparql
-PREFIX kkotkata: <http://www.kkotkata.org/ontology#>
+PREFIX kkotkata:
+<http://www.kkotkata.org/ontology#>
 
 SELECT ?kata ?terjemahan ?romanisasi
 WHERE {
-    ?s kkotkata:kataDasar ?kata ;
-       kkotkata:terjemahanKorea ?terjemahan ;
-       kkotkata:romanisasi ?romanisasi .
 
-    FILTER(CONTAINS(LCASE(?kata), LCASE("apel")))
+?s kkotkata:kataDasar ?kata ;
+   kkotkata:terjemahanKorea ?terjemahan ;
+   kkotkata:romanisasi ?romanisasi .
+
+FILTER(CONTAINS(
+LCASE(?kata),
+LCASE("apel")
+))
+
 }
 ```
 
+Output:
+
+| Kata | Korea | Romanisasi |
+| ---- | ----- | ---------- |
+| apel | 사과    | sagwa      |
+
 ---
 
-## Dataset
+# 📚 Dataset
 
-Dataset terdiri dari:
+Dataset KkotKata terdiri dari:
 
-* 100 kosakata Bahasa Korea
+* 100 kosakata Korea–Indonesia
+* Terjemahan Bahasa Korea
 * Terjemahan Bahasa Indonesia
-* Terjemahan Bahasa Inggris
 * Romanisasi
 * Pelafalan
 * Kategori
@@ -258,7 +486,11 @@ Dataset terdiri dari:
 * Antonim
 * Contoh kalimat
 
-Kategori yang digunakan:
+---
+
+# 🏷️ Kategori Dataset
+
+Kategori kosakata:
 
 * Food & Drink
 * Emotion & Trait
@@ -271,38 +503,39 @@ Kategori yang digunakan:
 
 ---
 
-## Pengujian Sistem
+# 🧪 Pengujian Sistem
 
-Pengujian dilakukan terhadap fitur:
+Pengujian dilakukan pada:
 
-* Pencarian kata valid
-* Pencarian kata tidak ditemukan
-* Filter kategori
-* Koneksi Fuseki
-* Pencarian Korea → Indonesia
-
-Seluruh skenario pengujian berhasil dijalankan dengan status lulus.
+| Pengujian                   | Status   |
+| --------------------------- | -------- |
+| Pencarian Indonesia → Korea | Berhasil |
+| Pencarian Korea → Indonesia | Berhasil |
+| Query SPARQL                | Berhasil |
+| Koneksi Fuseki              | Berhasil |
+| Data RDF terbaca            | Berhasil |
+| Kata tidak ditemukan        | Berhasil |
 
 ---
 
-## Pengembang
+# 👩‍💻 Pengembang
 
 Kelompok Proyek Semantic Web
 
-* Senia Nur Hasanah (140810230021)
-* Martha Meslina Florencia (140810230037)
-* Alissa Indraputri (140810230064)
+| Nama                     | NPM          |
+| ------------------------ | ------------ |
+| Senia Nur Hasanah        | 140810230021 |
+| Martha Meslina Florencia | 140810230037 |
+| Alissa Indraputri        | 140810230064 |
 
 Program Studi S-1 Teknik Informatika
-
 Fakultas Matematika dan Ilmu Pengetahuan Alam
-
 Universitas Padjadjaran
 
 2026
 
 ---
 
-## Lisensi
+# 📄 Lisensi
 
-Proyek ini dikembangkan untuk keperluan akademik pada mata kuliah Semantic Web, Program Studi Teknik Informatika Universitas Padjadjaran.
+Proyek ini dibuat untuk kebutuhan akademik pada mata kuliah **Semantic Web** Program Studi Teknik Informatika Universitas Padjadjaran.
